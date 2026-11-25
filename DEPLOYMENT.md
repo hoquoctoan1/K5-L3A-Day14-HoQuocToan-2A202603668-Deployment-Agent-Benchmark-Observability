@@ -1,40 +1,71 @@
 # Deployment Information
 
-Trạng thái: **chưa deploy**, chưa có URL public hoặc ảnh cloud. File này là hướng dẫn thực thi, không phải bằng chứng deploy thành công.
+## Public URL
 
-Người dùng xác nhận chưa có tài khoản/phiên đăng nhập Railway hoặc Render. Kiểm tra local đầy đủ đã đạt PASS 12/12 (`reports/production_linux.txt`); kết quả này không thay thế bốn phép kiểm tra public URL.
+**https://day14-production-agent.onrender.com**
 
-## Phạm vi
+## Platform
 
-Deploy thư mục `06-lab-complete/` với Dockerfile của Part 6. Cần Redis trên cùng nền tảng; cấp `REDIS_URL` của Redis đó cho agent. Chọn Railway hoặc Render. Không cần triển khai cả hai để có phần so sánh cấu hình.
+**Render** (Blueprint `06-lab-complete/render.yaml`), region Singapore, free plan.
 
-## Các biến cần đặt
+| Service | Loại | Vai trò |
+|---|---|---|
+| `day14-production-agent` | Web Service (Docker, `rootDir: 06-lab-complete`) | Agent Part 6 |
+| `day14-agent-redis` | Key Value (Redis) | Rate limit, cost guard, state; chỉ truy cập qua private network (`ipAllowList: []`) |
 
-`AGENT_API_KEY` (secret), `REDIS_URL` (secret connection string), `PORT` (platform cấp), `ENVIRONMENT=production`, `RATE_LIMIT_PER_MINUTE`, `DAILY_BUDGET_USD`; các tùy chọn giá token/log theo `.env.example`. Đây là danh sách cần đặt, **chưa xác nhận đã đặt trên cloud**.
+Gói free của Render tự ngủ sau khoảng 15 phút không có request; lần gọi đầu sau đó mất khoảng 1 phút để khởi động lại.
 
-## Triển khai
+## Test Commands
 
-Railway: đăng nhập tài khoản, tạo project và service Redis; cấu hình root directory `06-lab-complete`, dùng Dockerfile, cấp biến môi trường rồi deploy và tạo public domain.
-
-Render: dùng Blueprint ở `06-lab-complete/render.yaml`, xác nhận build context/root directory đúng cấu hình. Blueprint hiện khai báo web và Redis (`type: keyvalue`) cùng Singapore, đều `plan: free`; API key do nền tảng sinh, REDIS_URL tham chiếu connectionString của service Redis; `ipAllowList: []` chặn Redis từ internet. Cấu hình chỉ được parse/kiểm tra liên kết tại local, chưa được Render validate hoặc tạo service.
-
-Đối chiếu [Blueprint YAML Reference của Render](https://render.com/docs/blueprint-spec): cần chỉ định plan để tránh mặc định gói có phí. Key Value free không có persistence khi datastore restart; Redis vẫn tách khỏi agent để state còn khi chỉ restart agent. Đây là cấu hình lab, không tuyên bố datastore bền vững khi chính Redis restart.
-
-## Tự kiểm tra sau deploy
-
-Đặt BASE thành URL thực và AGENT_API_KEY bằng secret trong terminal (không lưu vào file tracked):
+Đặt `BASE` là URL trên và `AGENT_API_KEY` là key lấy từ tab Environment của Render (chỉ đặt trong terminal, không ghi vào file):
 
 ```bash
+BASE=https://day14-production-agent.onrender.com
+
+# 1. Health check → 200
 curl -sS -o /dev/null -w '%{http_code}\n' "$BASE/health"
+
+# 2. Readiness (Redis kết nối được) → 200
 curl -sS -o /dev/null -w '%{http_code}\n' "$BASE/ready"
-curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$BASE/ask" -H 'Content-Type: application/json' -d '{"question":"Hello"}'
-curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$BASE/ask" -H 'Content-Type: application/json' -H "X-API-Key: $AGENT_API_KEY" -d '{"question":"Hello"}'
+
+# 3. /ask không có key → 401
+curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$BASE/ask" \
+  -H 'Content-Type: application/json' -d '{"question":"Hello"}'
+
+# 4. /ask có key → 200
+curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$BASE/ask" \
+  -H 'Content-Type: application/json' -H "X-API-Key: $AGENT_API_KEY" -d '{"question":"Hello"}'
 ```
 
-Kỳ vọng lần lượt 200, 200, 401, 200. Sau đó chạy checker `--public-url "$BASE"` từ Part 6, lưu output thật. Chưa chạy bốn kiểm tra này.
+Chạy cả 4 kiểm tra cùng rate limit bằng script: `python scripts/verify_public_url.py "$BASE"` (key đọc từ biến môi trường, được che trong output; kết quả ghi ra `reports/public_url_checks.json`).
 
-## Bằng chứng còn thiếu
+## Kết quả kiểm tra
 
-- URL public thật và kết quả bốn HTTP checks.
-- `screenshots/dashboard.png`, `screenshots/running.png`, `screenshots/test.png`, không để lộ key/token.
-- Xác nhận repo Public, tên lớp L3A/L3B đúng theo yêu cầu; tên repo hiện tại chưa theo chính xác mẫu SUBMISSION. Không tự suy đoán lớp hoặc đổi repo từ xa.
+| Kiểm tra | Kỳ vọng | Kết quả |
+|---|---|---|
+| `GET /health` | 200 | ✅ 200 `{"status":"healthy","environment":"production"}` |
+| `GET /ready` | 200 | ✅ 200 `{"status":"ready"}` |
+| `POST /ask` không key | 401 | ✅ 401 |
+| `POST /ask` có key | 200 | ⏳ chờ chạy với key thật |
+| Rate limit | 429 | ⏳ chờ chạy với key thật |
+
+Checker gốc chạy đầy đủ (Linux container, Docker thật) kèm `--public-url https://day14-production-agent.onrender.com`: **PASS 12/12, 44/44 checks**, gồm `Public URL: GET /health → 200`. Bằng chứng: `reports/production_public_url.txt`.
+
+## Environment Variables Set
+
+Đặt trên Render qua Blueprint, không ghi trong code:
+
+| Biến | Nguồn |
+|---|---|
+| `AGENT_API_KEY` | Render tự sinh (`generateValue: true`), secret |
+| `REDIS_URL` | Tham chiếu `connectionString` của `day14-agent-redis` (`fromService`) |
+| `ENVIRONMENT` | `production` |
+| `RATE_LIMIT_PER_MINUTE` | Đặt trong Blueprint |
+| `DAILY_BUDGET_USD` | `1.0` |
+| `PORT` | Render cấp tự động; app đọc biến này |
+
+## Screenshots
+
+- [Deployment dashboard](screenshots/dashboard.png)
+- [Service running](screenshots/running.png) — `/health` và `/ready` của URL public
+- [Test results](screenshots/test.png)

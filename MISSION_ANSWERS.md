@@ -61,7 +61,7 @@ Full stack executed with `docker compose -p k5-day14-docker up -d --build`. Redi
 
 ## Part 3 — Cloud Deployment
 
-Chưa deploy public; xem `DEPLOYMENT.md`. Theo K5, deploy agent Part 6 cùng Redis, không deploy app mẫu Part 3.
+Nền tảng chính: **Render**, deploy agent Part 6 cùng Redis (Key Value) bằng Blueprint `06-lab-complete/render.yaml`. URL public: **https://day14-production-agent.onrender.com**. `/health` 200, `/ready` 200, `/ask` không key 401; checker gốc với `--public-url` báo PASS 12/12 (44/44), bằng chứng `reports/production_public_url.txt`. Chi tiết, biến môi trường và ảnh: `DEPLOYMENT.md`.
 
 Railway dùng TOML, khai báo builder Dockerfile và healthcheckPath; Redis là service riêng, nối bằng biến môi trường reference. Render dùng YAML Blueprint, có thể mô tả web service cùng managed key-value và tham chiếu connection string. Cả hai phải dùng `/health`, bind `0.0.0.0`, đọc PORT và cấp secret ngoài source. Có config chưa có nghĩa đã deploy thành công.
 
@@ -119,7 +119,7 @@ Result: 12/12 tiêu chí đạt · 43/43 checks passed
 🎉 PASS 12/12 — PRODUCTION READY! Deploy nào!
 ```
 
-Mục Public URL ready trong checker xác minh cấu hình deploy; **chưa có URL public thực tế**. Kiểm tra image độc lập: 286286447 byte, user UID 10001, health 200/readiness 503 khi Redis không sẵn sàng, stop exit 0; xem `reports/packaging_runtime.txt`. Hai file `production_static.txt`/`production_runtime.txt` là lần kiểm tra trung gian trước khi Docker/Redis sẵn sàng, không phải kết quả cuối.
+Chạy lại checker đầy đủ kèm `--public-url https://day14-production-agent.onrender.com`: PASS 12/12, **44/44** checks, có thêm `Public URL: GET /health → 200` (`reports/production_public_url.txt`). Kiểm tra image độc lập: 286286447 byte, user UID 10001, health 200/readiness 503 khi Redis không sẵn sàng, stop exit 0; xem `reports/packaging_runtime.txt`. Hai file `production_static.txt`/`production_runtime.txt` là lần kiểm tra trung gian trước khi Docker/Redis sẵn sàng, không phải kết quả cuối.
 
 ## Bằng chứng chạy ví dụ
 
@@ -134,7 +134,7 @@ Chạy `.venv-benchmark/Scripts/python.exe scripts/verify_examples.py` trên Win
 | Trả lời Part 1–5 bằng code và bằng chứng thật | Mission answers, HTTP401/200/429, image size, Redis history qua3instance | `2132484`, `d551852`, `e41b976`; học viên chưa tự xác nhận |
 | Đo chất lượng/hiệu năng và sửa retrieval thiếu tài liệu | Baseline, histogram, KB JWT/HPA, fixed23/23, CI, load CSV/JSON | Các JSON/CSV đi kèm BENCHMARK_REPORT; không sửa golden dataset |
 
-AI đã tự phát hiện và sửa `PYTHONUSERBASE` cho các Dockerfile ví dụ dùng non-root; đã chạy lại image/stack thực. Rà soát cuối không phát hiện lỗi chặn theo rubric; checker/dataset không đổi, không track `.env` thật. Người dùng chưa đăng nhập cloud nên phần deploy và 3 ảnh deploy chưa hoàn thành. 4 ảnh Part 7 (Grafana, 2 trace Jaeger, Prometheus alerts) do Claude Code chụp bằng Chrome headless từ stack chạy thật trên máy học viên, trong một lần chạy bổ sung có chaos riêng (`reports/chaos_screenshot_alerts.json`).
+AI đã tự phát hiện và sửa `PYTHONUSERBASE` cho các Dockerfile ví dụ dùng non-root; đã chạy lại image/stack thực. Rà soát cuối không phát hiện lỗi chặn theo rubric; checker/dataset không đổi, không track `.env` thật. Học viên tự đăng nhập Render và tạo Blueprint; Claude Code kiểm tra URL public, chạy checker với `--public-url` và chụp `running.png`. 4 ảnh Part 7 (Grafana, 2 trace Jaeger, Prometheus alerts) do Claude Code chụp bằng Chrome headless từ stack chạy thật trên máy học viên, trong một lần chạy bổ sung có chaos riêng (`reports/chaos_screenshot_alerts.json`).
 
 - Yêu cầu: đọc hướng dẫn, chia giai đoạn, giao task cho agent, commit ngay sau mỗi task hoàn thành.
 - AI hỗ trợ: điều phối lập kế hoạch và soạn tài liệu; agent production viết Part 6; agent packaging viết Docker/deploy config; agent benchmark thực thi load/eval, sửa KB và CI.
