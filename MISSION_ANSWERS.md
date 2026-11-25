@@ -66,7 +66,7 @@ API key được kiểm tra trong dependency trước endpoint; thiếu/sai tr�
 
 Bản JWT mẫu lấy token ở `POST /auth/token` bằng tài khoản demo trong hướng dẫn. Student được 10 request/phút; admin dùng limiter khác (100 request/phút), không phải miễn giới hạn. Sliding window loại timestamp cũ hơn 60 giây rồi đếm request trong cửa sổ hiện tại. Bản mẫu lưu RAM nên không chia sẻ giữa worker; Part 6 dùng Redis để state còn sau restart.
 
-Output thực tế 401/200/429: đang chờ chạy kiểm tra; token sẽ không được lưu vào bài.
+Output HTTP thực tế (`scripts/verify_examples.py`, bằng chứng `reports/examples_runtime.json`): thiếu xác thực 401; lấy token 200; 10 request hợp lệ liên tiếp trả 200; request thứ 11 trả 429. Token không lưu trong report. Đây là HTTP test tự động tương đương thao tác curl, chưa có ảnh/output `curl -i` theo checklist.
 
 ### Exercise 4.4
 
@@ -87,6 +87,12 @@ Chưa chạy Exercise 5.4–5.5 (3 instance, `test_stateless.py`) vì thiếu Do
 Đang chờ agent hoàn thành và kiểm tra tích hợp. Chưa tuyên bố PASS 12/12. Output thật sẽ lưu trong `reports/`.
 
 ## AI log
+
+## Bằng chứng chạy ví dụ
+
+Chạy `.venv-benchmark/Scripts/python.exe scripts/verify_examples.py` trên Windows. Part 1: query POST trả 200 và có answer; JSON-only trả 422. Part 4: 401/200/429 đúng như trên. Script khởi động server riêng, gửi HTTP thật, tắt server sau kiểm tra; không chứng minh graceful SIGTERM Linux. Đặt PYTHONIOENCODING=utf-8 vì ví dụ develop in tiếng Việt ra stdout.
+
+## AI log (chi tiết)
 
 - Yêu cầu: đọc hướng dẫn, chia giai đoạn, giao task cho agent, commit ngay sau mỗi task hoàn thành.
 - AI hỗ trợ: điều phối lập kế hoạch và soạn tài liệu; agent production viết Part 6; agent packaging viết Docker/deploy config; agent benchmark thực thi load/eval, sửa KB và CI.
