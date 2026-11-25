@@ -53,3 +53,13 @@ Bài chỉ hoàn thành toàn bộ khi có PASS 12/12 bản đầy đủ, URL cl
 2. Bổ sung7 ảnh theo SUBMISSION nếu muốn đáp ứng đủ rubric; hiện không có ảnh theo lựa chọn bỏ qua của người dùng.
 3. Xác nhận lớpL3A/L3B, tên repo đúng mẫu và repoPublic. Không tự suy đoán hoặc đổi cấu hình repo từ xa.
 4. Tự đọc/giải thích code, kiểm tra lại số liệu và bổ sung phần tự kiểm tra trong AI log, rồi nộp link repo trênLMS.
+
+## Tiếp tục hoàn thiện bài nộp
+
+Người dùng đã yêu cầu tiếp tục tất cả giai đoạn, bao gồm ảnh; lựa chọn bỏ qua ảnh trước đó không còn áp dụng. Đã xác nhận lớp **L3A**. Tên repo cần dùng: `K5-L3A-DAY14-HoQuocToan-2A202603668-Deployment-Benchmark-Observability`.
+
+- Đã push các commit bài làm lên origin/main thành công, tới `5f27c82` tại lần kiểm tra này.
+- Repo hiện tại trả HTTP200 khi truy cập không đăng nhập, xác nhận public. Chưa đổi tên repo từ xa.
+- Blueprint Render đã chuẩn bị web+Redis cùng region, explicit free plans, Redis chặn truy cập public; kiểm tra YAML local đạt, chưa gọi Render để tạo dịch vụ.
+- Đã đề nghị kết nối GitHub/Render và người dùng tự đăng nhập/chấp nhận điều khoản. Chưa xác nhận kết nối thành công.
+- Stack observability đã mở lại, tạo tải và thu bằng chứng riêng ở `reports/screenshot_run/`, không ghi đè số đo ban đầu. Đang chờ cửa sổ Edge riêng để chụp UI, vì browser access host chưa hoạt động.

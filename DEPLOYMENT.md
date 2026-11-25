@@ -16,7 +16,9 @@ Deploy thư mục `06-lab-complete/` với Dockerfile của Part 6. Cần Redis 
 
 Railway: đăng nhập tài khoản, tạo project và service Redis; cấu hình root directory `06-lab-complete`, dùng Dockerfile, cấp biến môi trường rồi deploy và tạo public domain.
 
-Render: dùng Blueprint ở `06-lab-complete/render.yaml`, xác nhận build context/root directory đúng cấu hình; cấp secret và Redis, đợi deploy hoàn tất. Chỉ chọn tài nguyên miễn phí/trial phù hợp, không tự nâng gói trả phí.
+Render: dùng Blueprint ở `06-lab-complete/render.yaml`, xác nhận build context/root directory đúng cấu hình. Blueprint hiện khai báo web và Redis (`type: keyvalue`) cùng Singapore, đều `plan: free`; API key do nền tảng sinh, REDIS_URL tham chiếu connectionString của service Redis; `ipAllowList: []` chặn Redis từ internet. Cấu hình chỉ được parse/kiểm tra liên kết tại local, chưa được Render validate hoặc tạo service.
+
+Đối chiếu [Blueprint YAML Reference của Render](https://render.com/docs/blueprint-spec): cần chỉ định plan để tránh mặc định gói có phí. Key Value free không có persistence khi datastore restart; Redis vẫn tách khỏi agent để state còn khi chỉ restart agent. Đây là cấu hình lab, không tuyên bố datastore bền vững khi chính Redis restart.
 
 ## Tự kiểm tra sau deploy
 
