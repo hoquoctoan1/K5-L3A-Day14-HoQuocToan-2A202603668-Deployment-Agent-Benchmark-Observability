@@ -35,3 +35,6 @@ Thumbs.db
 # ── Docker volumes (local dev) ─────────────────────��──────
 data/
 volumes/
+
+# Canonical submitted Locust CSV files are kept in root benchmark-results/.
+06-lab-complete/benchmark-observability/production/benchmark-results/
