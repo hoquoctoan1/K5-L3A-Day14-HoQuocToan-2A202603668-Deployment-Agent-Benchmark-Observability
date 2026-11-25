@@ -17,13 +17,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--docker", default="docker")
     parser.add_argument("--phase", choices=("error-only", "combined"), default="combined")
+    parser.add_argument("--prefix", help="Separate evidence/CSV prefix for an additional run")
     args = parser.parse_args()
     production = Path(__file__).resolve().parent
     reports = production.parents[2] / "reports"
     reports.mkdir(exist_ok=True)
     slow_rate = "0.03" if args.phase == "error-only" else "0.3"
     duration = "2m" if args.phase == "error-only" else "4m"
-    prefix = "chaos_error_only" if args.phase == "error-only" else "chaos"
+    prefix = args.prefix or ("chaos_error_only" if args.phase == "error-only" else "chaos")
+    if not prefix.replace("_", "").replace("-", "").isalnum():
+        raise SystemExit("Prefix must contain only letters, numbers, hyphens and underscores")
     env = {**os.environ, "MOCK_ERROR_RATE": "0.2", "MOCK_SLOW_RATE": slow_rate}
     compose = [args.docker, "compose", "-p", "k5-day14-observability"]
     report = {"parameters": {"MOCK_ERROR_RATE": "0.2", "MOCK_SLOW_RATE": slow_rate,

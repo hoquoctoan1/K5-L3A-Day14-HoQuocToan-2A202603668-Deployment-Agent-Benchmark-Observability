@@ -22,10 +22,11 @@ def get_json(url):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--docker", default="docker")
+    parser.add_argument("--out-dir", help="Separate evidence directory for an additional run")
     args = parser.parse_args()
     production = Path(__file__).resolve().parent
-    reports = production.parents[2] / "reports"
-    reports.mkdir(exist_ok=True)
+    reports = Path(args.out_dir).resolve() if args.out_dir else production.parents[2] / "reports"
+    reports.mkdir(parents=True, exist_ok=True)
     evidence = {"captured_at_utc": datetime.now(timezone.utc).isoformat(), "queries": {}}
     evidence["grafana_health"] = get_json("http://localhost:3000/api/health")
     evidence["grafana_dashboards"] = get_json("http://localhost:3000/api/search?type=dash-db")
