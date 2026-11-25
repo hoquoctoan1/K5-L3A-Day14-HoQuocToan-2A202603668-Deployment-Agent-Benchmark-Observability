@@ -1,0 +1,11 @@
+Packaging runtime verification
+Built with: docker build -t k5-day14-packaging:verified 06-lab-complete (exit 0)
+Image ID=sha256:0e22f2e3bee067d130d7f80136a607e904cd37205e66ee2de6f20427dece2a9e Size bytes=286286447 User=agent
+docker compose config --quiet exit=0
+Container started with PORT=18061 and deliberately unavailable Redis at127.0.0.1:1
+/health 200 {"status":"healthy","environment":"development"}
+/ready 503 {"detail":"Redis unavailable"}
+Docker health=starting
+uid=10001(agent) gid=10001(agent) groups=10001(agent)
+docker stop wall seconds=1.2395999
+Container exit code=0
