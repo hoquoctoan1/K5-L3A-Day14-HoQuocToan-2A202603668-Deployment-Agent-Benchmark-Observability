@@ -1,0 +1,76 @@
+{
+  "commands": [
+    "docker build -f 02-docker/develop/Dockerfile -t k5-day14-example:develop .",
+    "docker build -f 02-docker/production/Dockerfile -t k5-day14-example:production ."
+  ],
+  "images": {
+    "develop": {
+      "bytes": 1667787933,
+      "image_id": "sha256:dc37fb6ccd5ed53ee9efbc5b15ba72777085ff0dfdc0111657913cf49720e69f"
+    },
+    "production": {
+      "bytes": 239811723,
+      "image_id": "sha256:c259a797ce995c8e7e4518ad54ab7c400dea8f1ab3cad072fd7514b4d54eec39"
+    }
+  },
+  "http": [
+    {
+      "variant": "develop",
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "uptime_seconds": 28.2,
+        "container": true
+      }
+    },
+    {
+      "variant": "develop",
+      "path": "/ask?question=Hello",
+      "status": 200,
+      "body": {
+        "answer": "Đây là câu trả lời từ AI agent (mock). Trong production, đây sẽ là response từ OpenAI/Anthropic."
+      }
+    },
+    {
+      "variant": "production",
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "uptime_seconds": 21.9,
+        "version": "2.0.0",
+        "timestamp": "2026-11-25T08:13:38.447322"
+      }
+    },
+    {
+      "variant": "production",
+      "path": "/ask",
+      "status": 200,
+      "body": {
+        "answer": "Đây là câu trả lời từ AI agent (mock). Trong production, đây sẽ là response từ OpenAI/Anthropic."
+      }
+    },
+    {
+      "variant": "production-via-nginx",
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "uptime_seconds": 66.5,
+        "version": "2.0.0",
+        "timestamp": "2026-11-25T08:14:23.001410"
+      }
+    },
+    {
+      "variant": "production-via-nginx",
+      "path": "/ask",
+      "status": 200,
+      "body": {
+        "answer": "Đây là câu trả lời từ AI agent (mock). Trong production, đây sẽ là response từ OpenAI/Anthropic."
+      }
+    }
+  ],
+  "reduction_percent": 85.62097025317667,
+  "nginx_scope": "Isolated smoke test of repository nginx.conf, nginx:1.28-alpine, production agent; full Redis/Qdrant Compose stack not started."
+}

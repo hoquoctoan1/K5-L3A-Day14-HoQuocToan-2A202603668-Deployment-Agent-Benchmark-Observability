@@ -34,15 +34,22 @@ Lệnh đúng của bản develop là `POST /ask?question=Hello`. JSON body khô
 3. Copy requirements và cài dependency trước source để đổi source không làm mất cache layer dependency.
 4. `CMD` khai báo command/arguments mặc định, có thể thay bằng arguments của `docker run`. `ENTRYPOINT` định nghĩa executable chính; khi dùng cùng CMD, CMD cung cấp arguments mặc định. Exec form giúp quản lý signal rõ ràng.
 
-### Exercise 2.2–2.3
+### Exercise 2.2-2.3
 
-Builder cài dependency; runtime slim chỉ mang runtime/package cần thiết, bỏ build tools và cache. Multi-stage không tự đảm bảo image nhỏ nếu vẫn copy tất cả builder.
+Multi-stage keeps dependencies in a slim runtime and excludes build tools/cache. Measured with `docker image inspect` after building from repository root:
 
-Chưa đo dung lượng develop/production: Docker chưa có trong PATH và đường dẫn Docker Desktop chuẩn cũng không tồn tại. Chưa có % chênh lệch. Khi có hai số đo, tính `(develop_bytes - production_bytes) / develop_bytes * 100`.
+| Image | Bytes | Decimal MB |
+|---|---:|---:|
+| develop | 1667787933 | 1667.79 |
+| production | 239811723 | 239.81 |
+
+Reduction: **85.62%**, calculated as `(develop_bytes - production_bytes) / develop_bytes * 100`. Both containers returned200 for `/health`; develop query `POST /ask?question=Hello` and production JSON `POST /ask` returned200. Evidence: `reports/docker_examples_runtime.json`. Production needed `PYTHONUSERBASE` to resolve packages for its non-root user.
 
 ### Exercise 2.4
 
-Stack mẫu gồm Nginx → agent; agent kết nối Redis và Qdrant qua DNS service trên network Compose. Agent phụ thuộc healthcheck Redis/Qdrant. Port mapping đưa Nginx ra host; không dùng `localhost` để kết nối service khác trong container. Chưa có kết quả test qua Nginx do thiếu Docker.
+Stack topology: Nginx -> agent -> Redis and Qdrant on the Compose network. Agent depends on Redis/Qdrant healthchecks; service DNS connects containers rather than localhost.
+
+Actual isolated smoke test using repository `02-docker/production/nginx/nginx.conf`: `/health` and JSON `POST /ask` through Nginx returned200. Used cached `nginx:1.28-alpine` because the alpine-tag pull stalled. Evidence: `reports/docker_examples_runtime.json`. This verifies Nginx -> production agent; the full Redis/Qdrant Compose stack has not been started for this exercise.
 
 ## Part 3 — Cloud Deployment
 
@@ -80,7 +87,7 @@ Uvicorn nhận SIGTERM, ngừng nhận request mới, chờ request đang chạy
 
 State trong RAM chỉ có ở một process: request tới instance khác hoặc restart sẽ mất session/rate limit. Redis ngoài process cho phép worker dùng chung state. Nginx phân phối traffic qua các instance; service discovery và health/readiness quyết định đích có thể nhận request.
 
-Chưa chạy Exercise 5.4–5.5 (3 instance, `test_stateless.py`) vì thiếu Docker. Không coi fallback in-memory của code mẫu là bằng chứng stateless.
+Actual Exercise5.4-5.5: `docker compose -p k5-day14-scaling up -d --build --scale agent=3`, then unchanged `python test_stateless.py` exited0. Five requests rotated across instance-f553b2, instance-70749d and instance-1c7f22; shared Redis history retained10 messages (5 user +5 assistant). Evidence: `reports/scaling_runtime.txt`. Cached Nginx1.28-alpine was locally tagged nginx:alpine because the original pull stalled. Stack was taken down after testing, releasing8080. This script verifies shared history; it does not kill an instance or prove in-flight shutdown.
 
 ## Part 6 — Kết quả checker
 
