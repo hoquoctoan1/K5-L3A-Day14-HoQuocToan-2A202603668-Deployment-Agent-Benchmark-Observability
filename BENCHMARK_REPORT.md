@@ -79,7 +79,7 @@ Metric thêm: histogram `agent_question_length_chars` với bucket 20/50/100/200
 - [ ] Jaeger trace lỗi có exception.
 - [ ] Prometheus Alerts thấy ít nhất **2 alert cùng firing** theo CHECKPOINTS/RUBRIC.
 
-### 4.2 Thí nghiệm cần chạy
+### 4.2 Thí nghiệm phá hệ thống đã chạy
 
 | Thay đổi | Alert firing | Thời gian tới firing | Metric phản ánh |
 |---|---|---|---|
@@ -130,4 +130,4 @@ Riêng `/ask`: 1 instance RPS 38.2346, p50 500 ms, p95 3500 ms, p99 5900 ms, 45/
 2. Retrieval tăng tokens nhưng cải thiện cost/câu đúng; quality gate kiểm tra cả accuracy lẫn regression.
 3. Concurrency cao có thể làm latency tăng nhanh khi throughput chững lại; cần profiling và so sánh scale bằng cùng workload.
 
-Nếu triển khai thật, bổ sung saturation/queue depth, lỗi Redis, budget burn rate và đánh giá chất lượng có lấy mẫu. CP7 và phép đo scaling CP8 đã có dữ liệu thực; ảnh được bỏ theo yêu cầu người dùng, cloud chưa triển khai.
+Nếu triển khai thật, bổ sung saturation/queue depth, lỗi Redis, budget burn rate và đánh giá chất lượng có lấy mẫu. CP7 và phần đo API/log, traces, alert, scaling CP8 đã có dữ liệu thực; ảnh được bỏ theo yêu cầu người dùng, cloud chưa triển khai. Đã commit dữ liệu trước khi dọn stack bằng `docker compose -p k5-day14-observability down -v` và dừng hai server benchmark v1/v2; không tác động container ngoài bài lab.
