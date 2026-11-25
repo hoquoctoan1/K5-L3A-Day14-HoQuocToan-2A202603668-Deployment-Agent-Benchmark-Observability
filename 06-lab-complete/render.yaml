@@ -1,9 +1,11 @@
 # Select this Blueprint file in 06-lab-complete/ when creating the service.
-# Provision Redis separately and supply its internal URL as REDIS_URL.
+# Both services explicitly use free plans; Redis is private-network only.
 services:
   - type: web
     name: day14-production-agent
     runtime: docker
+    plan: free
+    region: singapore
     rootDir: 06-lab-complete
     dockerfilePath: ./Dockerfile
     dockerContext: .
@@ -12,10 +14,19 @@ services:
       - key: AGENT_API_KEY
         generateValue: true
       - key: REDIS_URL
-        sync: false
+        fromService:
+          type: keyvalue
+          name: day14-agent-redis
+          property: connectionString
       - key: ENVIRONMENT
         value: production
       - key: RATE_LIMIT_PER_MINUTE
         value: "60"
       - key: DAILY_BUDGET_USD
         value: "1.0"
+  - type: keyvalue
+    name: day14-agent-redis
+    plan: free
+    region: singapore
+    ipAllowList: []
+    maxmemoryPolicy: noeviction
