@@ -1,15 +1,15 @@
 {
-  "trace_id": "fd78e948b44dd28e1aebac8b1c9460c9",
+  "trace_id": "8d5c385cf4153c323723874dc52ccddb",
   "spans": [
     {
-      "traceId": "fd78e948b44dd28e1aebac8b1c9460c9",
-      "spanId": "17682e54bdc4b7b4",
-      "parentSpanId": "2d8e30b906f26629",
+      "traceId": "8d5c385cf4153c323723874dc52ccddb",
+      "spanId": "0b87600951b6e246",
+      "parentSpanId": "72e0866f78119830",
       "flags": 256,
       "name": "agent.retrieve_context",
       "kind": 1,
-      "startTimeUnixNano": "1795594790938764995",
-      "endTimeUnixNano": "1795594790961917895",
+      "startTimeUnixNano": "1795595228287601529",
+      "endTimeUnixNano": "1795595228404742133",
       "attributes": [
         {
           "key": "retrieval.documents",
@@ -21,14 +21,14 @@
       "status": {}
     },
     {
-      "traceId": "fd78e948b44dd28e1aebac8b1c9460c9",
-      "spanId": "a0c13f0a92e093b0",
-      "parentSpanId": "2d8e30b906f26629",
+      "traceId": "8d5c385cf4153c323723874dc52ccddb",
+      "spanId": "24f660da802dd813",
+      "parentSpanId": "72e0866f78119830",
       "flags": 256,
       "name": "chat mock-llm-small",
       "kind": 1,
-      "startTimeUnixNano": "1795594790962077495",
-      "endTimeUnixNano": "1795594791044781295",
+      "startTimeUnixNano": "1795595228405043333",
+      "endTimeUnixNano": "1795595229296201468",
       "attributes": [
         {
           "key": "error.type",
@@ -57,7 +57,7 @@
       ],
       "events": [
         {
-          "timeUnixNano": "1795594791044578595",
+          "timeUnixNano": "1795595229296117168",
           "name": "exception",
           "attributes": [
             {
@@ -93,19 +93,19 @@
       }
     },
     {
-      "traceId": "fd78e948b44dd28e1aebac8b1c9460c9",
-      "spanId": "2d8e30b906f26629",
-      "parentSpanId": "bac415b5ac78bfa1",
+      "traceId": "8d5c385cf4153c323723874dc52ccddb",
+      "spanId": "72e0866f78119830",
+      "parentSpanId": "778e566df29ac637",
       "flags": 256,
       "name": "agent.run",
       "kind": 1,
-      "startTimeUnixNano": "1795594790938708895",
-      "endTimeUnixNano": "1795594791046232595",
+      "startTimeUnixNano": "1795595228287452029",
+      "endTimeUnixNano": "1795595229296981468",
       "attributes": [
         {
           "key": "agent.question.length",
           "value": {
-            "intValue": "23"
+            "intValue": "44"
           }
         },
         {
@@ -117,7 +117,7 @@
       ],
       "events": [
         {
-          "timeUnixNano": "1795594791046187495",
+          "timeUnixNano": "1795595229296946768",
           "name": "exception",
           "attributes": [
             {
@@ -153,13 +153,13 @@
       }
     },
     {
-      "traceId": "fd78e948b44dd28e1aebac8b1c9460c9",
-      "spanId": "bac415b5ac78bfa1",
+      "traceId": "8d5c385cf4153c323723874dc52ccddb",
+      "spanId": "778e566df29ac637",
       "flags": 256,
       "name": "POST /ask",
       "kind": 2,
-      "startTimeUnixNano": "1795594790936459395",
-      "endTimeUnixNano": "1795594791050499995",
+      "startTimeUnixNano": "1795595227778760909",
+      "endTimeUnixNano": "1795595229321449069",
       "attributes": [
         {
           "key": "http.flavor",
@@ -236,7 +236,7 @@
         {
           "key": "net.peer.port",
           "value": {
-            "intValue": "44296"
+            "intValue": "44056"
           }
         }
       ],
