@@ -94,7 +94,7 @@ Thí nghiệm B dùng cùng tải trong 4 phút, thêm độ chậm vào cấu h
 
 Từ PromQL lúc tải 3 instance (`observability_scale3_evidence.json`): p95 = 1.19647 s, average = 0.34752 s. Khoảng cách cho thấy đuôi request chậm; histogram Prometheus nội suy bucket nên p95 không cần bằng percentile Locust trên toàn bộ lần chạy. RPS mỗi instance là 19.9455, 16.6728 và 16.6035; cả ba đều nhận tải, chưa hoàn toàn đều ở thời điểm lấy mẫu (instance đầu có lịch sử chạy lâu hơn). Input = 4094.1494 token/s, output = 2137.9999 token/s; retrieval thêm context khiến input nhiều hơn. Gọi public `/metrics` thực trả **404**; Prometheus scrape nội bộ để tránh lộ thông tin vận hành. Grafana API trả database `ok` và dashboard UID `day14-agent-overview` có tồn tại; chưa quan sát UI theo yêu cầu bỏ ảnh.
 
-### 4.3 Trace cần bổ sung
+### 4.3 Phân tích trace và log tương ứng
 
 Trace chậm nhất **trong 200 trace trả về ở lần lấy mẫu cuối** (không khẳng định là chậm nhất toàn bộ lịch sử):
 
