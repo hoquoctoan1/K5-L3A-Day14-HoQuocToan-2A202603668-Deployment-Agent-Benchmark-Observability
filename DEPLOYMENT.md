@@ -66,6 +66,6 @@ Checker gốc chạy đầy đủ (Linux container, Docker thật) kèm `--publi
 
 ## Screenshots
 
-- [Deployment dashboard](screenshots/dashboard.png)
+- [Deployment dashboard](screenshots/dashboard.png) — ảnh học viên chụp trên Render lúc deploy: Blueprint tạo Key Value + web service, log service nhận health check 200
 - [Service running](screenshots/running.png) — `/health` và `/ready` của URL public
-- [Test results](screenshots/test.png)
+- [Test results](screenshots/test.png) — `curl -i` thật tới URL public (200 / 200 / 401) và tóm tắt checker `--public-url` PASS 44/44
