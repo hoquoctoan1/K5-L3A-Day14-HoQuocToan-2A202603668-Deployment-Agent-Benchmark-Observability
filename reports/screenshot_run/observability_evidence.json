@@ -1,0 +1,269 @@
+{
+  "captured_at_utc": "2026-11-25T08:39:31.770160+00:00",
+  "queries": {
+    "rps_by_instance": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "instance": "172.20.0.4:8000"
+            },
+            "value": [
+              1795595971.893,
+              "3.141335"
+            ]
+          },
+          {
+            "metric": {
+              "instance": "172.20.0.6:8000"
+            },
+            "value": [
+              1795595971.893,
+              "3.044068333333333"
+            ]
+          },
+          {
+            "metric": {
+              "instance": "172.20.0.7:8000"
+            },
+            "value": [
+              1795595971.893,
+              "3.2093360000000004"
+            ]
+          }
+        ]
+      }
+    },
+    "p95_seconds": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795595971.899,
+              "0.29187295826906556"
+            ]
+          }
+        ]
+      }
+    },
+    "avg_seconds": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795595971.915,
+              "0.22450522475704437"
+            ]
+          }
+        ]
+      }
+    },
+    "tokens_per_second": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "type": "input"
+            },
+            "value": [
+              1795595971.921,
+              "726.1154335555555"
+            ]
+          },
+          {
+            "metric": {
+              "type": "output"
+            },
+            "value": [
+              1795595971.921,
+              "378.2423608888889"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "grafana_health": {
+    "database": "ok",
+    "version": "13.2.4",
+    "commit": "0e79aef9d91abf3bdadae9af15763029072fb45b"
+  },
+  "grafana_dashboards": [
+    {
+      "id": 4314108322787328,
+      "uid": "day14-agent-overview",
+      "orgId": 1,
+      "title": "Day 14 — AI Agent Overview",
+      "uri": "db/day-14-e28094-ai-agent-overview",
+      "url": "/d/day14-agent-overview/day-14-e28094-ai-agent-overview",
+      "slug": "",
+      "type": "dash-db",
+      "tags": [
+        "agent",
+        "day14",
+        "llm"
+      ],
+      "isStarred": false,
+      "folderId": 4314107280662528,
+      "folderUid": "bg5cm8uwcbfnkc",
+      "folderTitle": "Day 14 - Agent Observability",
+      "folderUrl": "/dashboards/f/bg5cm8uwcbfnkc/day-14-agent-observability",
+      "sortMeta": 0,
+      "isDeleted": false
+    }
+  ],
+  "public_metrics_status": 404,
+  "alerts": {
+    "status": "success",
+    "data": {
+      "alerts": []
+    }
+  },
+  "slow_trace": {
+    "trace_id": "a92f6b9bd87601a2aba5714649c4dfb2",
+    "duration_ms": 1788.887269,
+    "matching_logs": [
+      "agent-3  | {\"ts\": \"2026-11-25T08:39:17.811688+00:00\", \"level\": \"INFO\", \"service\": \"observable-agent\", \"instance\": \"05673875d6a9\", \"event\": \"llm_call\", \"trace_id\": \"a92f6b9bd87601a2aba5714649c4dfb2\", \"span_id\": \"7d448db43ed58779\", \"request_id\": \"c2d29337806d\", \"model\": \"mock-llm-small\", \"agent_version\": \"v2\", \"input_tokens\": 73, \"output_tokens\": 35, \"cost_usd\": 3.2e-05, \"llm_ms\": 1670.5}",
+      "agent-3  | {\"ts\": \"2026-11-25T08:39:17.812299+00:00\", \"level\": \"INFO\", \"service\": \"observable-agent\", \"instance\": \"05673875d6a9\", \"event\": \"http_request\", \"trace_id\": \"a92f6b9bd87601a2aba5714649c4dfb2\", \"span_id\": \"7d448db43ed58779\", \"request_id\": \"c2d29337806d\", \"method\": \"POST\", \"route\": \"/ask\", \"status\": 200, \"ms\": 1787.9}"
+    ],
+    "longest_processing_span": {
+      "traceId": "a92f6b9bd87601a2aba5714649c4dfb2",
+      "spanId": "8415bcad3c006f9c",
+      "parentSpanId": "bc5e6dd0b1ca57f5",
+      "flags": 256,
+      "name": "chat mock-llm-small",
+      "kind": 1,
+      "startTimeUnixNano": "1795595956140512388",
+      "endTimeUnixNano": "1795595957811557085",
+      "attributes": [
+        {
+          "key": "gen_ai.operation.name",
+          "value": {
+            "stringValue": "chat"
+          }
+        },
+        {
+          "key": "gen_ai.provider.name",
+          "value": {
+            "stringValue": "mock"
+          }
+        },
+        {
+          "key": "gen_ai.request.model",
+          "value": {
+            "stringValue": "mock-llm-small"
+          }
+        },
+        {
+          "key": "gen_ai.usage.input_tokens",
+          "value": {
+            "intValue": "73"
+          }
+        },
+        {
+          "key": "gen_ai.usage.output_tokens",
+          "value": {
+            "intValue": "35"
+          }
+        },
+        {
+          "key": "llm.cost_usd",
+          "value": {
+            "doubleValue": 3.195e-05
+          }
+        }
+      ],
+      "status": {}
+    }
+  },
+  "error_trace": {
+    "trace_id": "3f980a8eb73f61ae72f9e3b413d510ed",
+    "duration_ms": 121.670653,
+    "matching_logs": [
+      "agent-3  | {\"ts\": \"2026-11-25T08:39:30.124062+00:00\", \"level\": \"INFO\", \"service\": \"observable-agent\", \"instance\": \"05673875d6a9\", \"event\": \"llm_error\", \"trace_id\": \"3f980a8eb73f61ae72f9e3b413d510ed\", \"span_id\": \"faa28223222db1b5\", \"request_id\": \"68fd02b4c994\", \"error\": \"Upstream LLM error: 503 Service Unavailable (mock)\"}",
+      "agent-3  | {\"ts\": \"2026-11-25T08:39:30.124575+00:00\", \"level\": \"INFO\", \"service\": \"observable-agent\", \"instance\": \"05673875d6a9\", \"event\": \"http_request\", \"trace_id\": \"3f980a8eb73f61ae72f9e3b413d510ed\", \"span_id\": \"faa28223222db1b5\", \"request_id\": \"68fd02b4c994\", \"method\": \"POST\", \"route\": \"/ask\", \"status\": 503, \"ms\": 121.0}"
+    ],
+    "longest_processing_span": {
+      "traceId": "3f980a8eb73f61ae72f9e3b413d510ed",
+      "spanId": "408e7fabce9694a4",
+      "parentSpanId": "a98b19678402ae68",
+      "flags": 256,
+      "name": "chat mock-llm-small",
+      "kind": 1,
+      "startTimeUnixNano": "1795595970026142697",
+      "endTimeUnixNano": "1795595970123690060",
+      "attributes": [
+        {
+          "key": "error.type",
+          "value": {
+            "stringValue": "upstream_unavailable"
+          }
+        },
+        {
+          "key": "gen_ai.operation.name",
+          "value": {
+            "stringValue": "chat"
+          }
+        },
+        {
+          "key": "gen_ai.provider.name",
+          "value": {
+            "stringValue": "mock"
+          }
+        },
+        {
+          "key": "gen_ai.request.model",
+          "value": {
+            "stringValue": "mock-llm-small"
+          }
+        }
+      ],
+      "events": [
+        {
+          "timeUnixNano": "1795595970123639560",
+          "name": "exception",
+          "attributes": [
+            {
+              "key": "exception.escaped",
+              "value": {
+                "stringValue": "False"
+              }
+            },
+            {
+              "key": "exception.message",
+              "value": {
+                "stringValue": "Upstream LLM error: 503 Service Unavailable (mock)"
+              }
+            },
+            {
+              "key": "exception.stacktrace",
+              "value": {
+                "stringValue": "Traceback (most recent call last):\n  File \"/app/app/main.py\", line 153, in run_agent\n    result = await mock_llm.generate(question, context=context,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/utils/mock_llm.py\", line 205, in generate\n    raise LLMError(\"Upstream LLM error: 503 Service Unavailable (mock)\")\nutils.mock_llm.LLMError: Upstream LLM error: 503 Service Unavailable (mock)\n"
+              }
+            },
+            {
+              "key": "exception.type",
+              "value": {
+                "stringValue": "utils.mock_llm.LLMError"
+              }
+            }
+          ]
+        }
+      ],
+      "status": {
+        "message": "LLMError: Upstream LLM error: 503 Service Unavailable (mock)",
+        "code": 2
+      }
+    }
+  }
+}
