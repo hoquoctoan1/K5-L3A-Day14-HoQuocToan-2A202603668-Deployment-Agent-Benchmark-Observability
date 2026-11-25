@@ -1,0 +1,835 @@
+docker : time="2026-11-25T15:06:05+07:00" level=warning msg="C:\\Users\\Admin\\Desktop\\lab\\K5-L3-Day14-HoQuocToan-2A2
+02603668-Deployment-Agent-Benchmark-Observability\\05-scaling-reliability\\production\\docker-compose.yml: the 
+attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+At line:2 char:164
++ ... Out-Null }; docker compose -p k5-day14-scaling up -d --build --scale  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (time="2026-11-2...tial confusion":String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image nginx:alpine Pulling 
+ 881fc932939e Pulling fs layer 0B
+ 272cbe758287 Pulling fs layer 0B
+ 85b05bfd25bc Pulling fs layer 0B
+ fbbe454312b9 Pulling fs layer 0B
+ 96001c9779a1 Pulling fs layer 0B
+ e9820988621b Pulling fs layer 0B
+ 3623869d224d Pulling fs layer 0B
+ e5f8fe67c1e1 Pulling fs layer 0B
+ 881fc932939e Already exists 0B
+ 272cbe758287 Downloading 1.049MB
+ 272cbe758287 Downloading 1.049MB
+ 272cbe758287 Downloading 1.049MB
+ 272cbe758287 Downloading 1.049MB
+ 272cbe758287 Downloading 1.049MB
+ 272cbe758287 Downloading 1.049MB
+ 272cbe758287 Downloading 1.049MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 2.097MB
+ 272cbe758287 Downloading 3.146MB
+ 272cbe758287 Downloading 3.146MB
+ 272cbe758287 Downloading 3.146MB
+ fbbe454312b9 Downloading 629B
+ 272cbe758287 Downloading 3.146MB
+ 272cbe758287 Downloading 3.146MB
+ 272cbe758287 Downloading 3.146MB
+ fbbe454312b9 Download complete 0B
+ 272cbe758287 Downloading 3.146MB
+ 272cbe758287 Downloading 3.146MB
+ 272cbe758287 Downloading 3.146MB
+ 96001c9779a1 Downloading 964B
+ 272cbe758287 Downloading 3.146MB
+ 96001c9779a1 Download complete 0B
+ 272cbe758287 Downloading 4.194MB
+ 272cbe758287 Download complete 0B
+ 272cbe758287 Extracting 1B
+ 272cbe758287 Extracting 1B
+ e9820988621b Download complete 0B
+ 272cbe758287 Extracting 1B
+ 272cbe758287 Extracting 1B
+ 272cbe758287 Extracting 1B
+ 85b05bfd25bc Download complete 0B
+ 272cbe758287 Extracting 1B
+ 272cbe758287 Extracting 1B
+ 272cbe758287 Extracting 1B
+ 272cbe758287 Extracting 1B
+ 3623869d224d Download complete 0B
+ 272cbe758287 Extracting 2B
+ 272cbe758287 Extracting 2B
+ 272cbe758287 Extracting 2B
+ 272cbe758287 Extracting 2B
+ 272cbe758287 Extracting 2B
+ e5f8fe67c1e1 Downloading 1.049MB
+ 272cbe758287 Extracting 2B
+ e5f8fe67c1e1 Downloading 1.049MB
+ 272cbe758287 Extracting 3B
+ d970fb760bb2 Downloading 22.55kB
+ e5f8fe67c1e1 Downloading 1.049MB
+ 272cbe758287 Extracting 3B
+ e5f8fe67c1e1 Downloading 1.049MB
+ d970fb760bb2 Download complete 0B
+ 272cbe758287 Extracting 3B
+ e5f8fe67c1e1 Downloading 1.049MB
+ 272cbe758287 Extracting 3B
+ e5f8fe67c1e1 Downloading 1.049MB
+ 272cbe758287 Extracting 3B
+ e5f8fe67c1e1 Downloading 1.049MB
+ 272cbe758287 Extracting 4B
+ e5f8fe67c1e1 Downloading 1.049MB
+ 272cbe758287 Extracting 4B
+ e5f8fe67c1e1 Downloading 2.097MB
+ 272cbe758287 Extracting 4B
+ e5f8fe67c1e1 Downloading 2.097MB
+ 272cbe758287 Extracting 4B
+ e5f8fe67c1e1 Downloading 2.097MB
+ e5f8fe67c1e1 Downloading 2.097MB
+ 272cbe758287 Pull complete 0B
+ e5f8fe67c1e1 Downloading 2.097MB
+ e5f8fe67c1e1 Downloading 2.097MB
+ e5f8fe67c1e1 Downloading 2.097MB
+ e5f8fe67c1e1 Downloading 2.097MB
+ fbbe454312b9 Pull complete 0B
+ e5f8fe67c1e1 Downloading 2.097MB
+ e5f8fe67c1e1 Downloading 2.097MB
+ e5f8fe67c1e1 Downloading 2.097MB
+ e5f8fe67c1e1 Downloading 2.097MB
+ e5f8fe67c1e1 Downloading 3.146MB
+ 3872ed807ade Downloading 869.6kB
+ e5f8fe67c1e1 Downloading 3.146MB
+ e5f8fe67c1e1 Downloading 3.146MB
+ 3872ed807ade Downloading 869.6kB
+ 96001c9779a1 Extracting 1B
+ e5f8fe67c1e1 Downloading 3.146MB
+ 96001c9779a1 Extracting 1B
+ e5f8fe67c1e1 Downloading 3.146MB
+ 3872ed807ade Download complete 0B
+ 96001c9779a1 Extracting 1B
+ e5f8fe67c1e1 Downloading 4.194MB
+ 96001c9779a1 Extracting 1B
+ e5f8fe67c1e1 Downloading 4.194MB
+ e5f8fe67c1e1 Downloading 4.194MB
+ 96001c9779a1 Pull complete 0B
+ e5f8fe67c1e1 Downloading 5.243MB
+ 85b05bfd25bc Extracting 1B
+ e5f8fe67c1e1 Downloading 5.243MB
+ 85b05bfd25bc Extracting 1B
+ e5f8fe67c1e1 Downloading 5.243MB
+ 85b05bfd25bc Extracting 1B
+ e5f8fe67c1e1 Downloading 5.243MB
+ 85b05bfd25bc Pull complete 0B
+ e5f8fe67c1e1 Downloading 5.243MB
+ e9820988621b Extracting 1B
+ e5f8fe67c1e1 Downloading 5.243MB
+ e9820988621b Extracting 1B
+ e5f8fe67c1e1 Downloading 5.243MB
+ e5f8fe67c1e1 Downloading 5.243MB
+ e9820988621b Pull complete 0B
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ 3623869d224d Extracting 1B
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ 3623869d224d Pull complete 0B
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 6.291MB
+ e5f8fe67c1e1 Downloading 7.34MB
+ e5f8fe67c1e1 Downloading 7.34MB
+ e5f8fe67c1e1 Downloading 7.34MB
+ e5f8fe67c1e1 Downloading 8.389MB
+ e5f8fe67c1e1 Downloading 8.389MB
+ e5f8fe67c1e1 Downloading 8.389MB
+ e5f8fe67c1e1 Downloading 8.389MB
+ e5f8fe67c1e1 Downloading 8.389MB
+ e5f8fe67c1e1 Downloading 9.437MB
+ e5f8fe67c1e1 Downloading 9.437MB
+ e5f8fe67c1e1 Downloading 9.437MB
+ e5f8fe67c1e1 Downloading 10.49MB
+ e5f8fe67c1e1 Downloading 10.49MB
+ e5f8fe67c1e1 Downloading 11.53MB
+ e5f8fe67c1e1 Downloading 11.53MB
+ e5f8fe67c1e1 Downloading 11.53MB
+ e5f8fe67c1e1 Downloading 12.58MB
+ e5f8fe67c1e1 Downloading 12.58MB
+ e5f8fe67c1e1 Downloading 12.58MB
+ e5f8fe67c1e1 Downloading 12.58MB
+ e5f8fe67c1e1 Downloading 13.63MB
+ e5f8fe67c1e1 Downloading 13.63MB
+ e5f8fe67c1e1 Downloading 13.63MB
+ e5f8fe67c1e1 Downloading 13.63MB
+ e5f8fe67c1e1 Downloading 13.63MB
+ e5f8fe67c1e1 Downloading 13.63MB
+ e5f8fe67c1e1 Downloading 13.63MB
+ e5f8fe67c1e1 Downloading 13.63MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 14.68MB
+ e5f8fe67c1e1 Downloading 15.73MB
+ e5f8fe67c1e1 Downloading 15.73MB
+ e5f8fe67c1e1 Downloading 15.73MB
+ e5f8fe67c1e1 Downloading 15.73MB
+ e5f8fe67c1e1 Downloading 15.73MB
+ e5f8fe67c1e1 Downloading 15.73MB
+ e5f8fe67c1e1 Downloading 15.73MB
+ e5f8fe67c1e1 Downloading 16.78MB
+ e5f8fe67c1e1 Downloading 16.78MB
+ e5f8fe67c1e1 Downloading 17.83MB
+ e5f8fe67c1e1 Downloading 18.87MB
+ e5f8fe67c1e1 Downloading 18.87MB
+ e5f8fe67c1e1 Downloading 18.87MB
+ e5f8fe67c1e1 Downloading 18.87MB
+ e5f8fe67c1e1 Downloading 18.87MB
+ e5f8fe67c1e1 Downloading 18.87MB
+ e5f8fe67c1e1 Downloading 19.92MB
+ e5f8fe67c1e1 Downloading 20.54MB
+ e5f8fe67c1e1 Download complete 0B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 1B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 2B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 3B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 4B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 5B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 6B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 7B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 8B
+ e5f8fe67c1e1 Extracting 9B
+ e5f8fe67c1e1 Extracting 9B
+ e5f8fe67c1e1 Pull complete 0B
+ Image nginx:alpine Pulled 
+ Image k5-day14-scaling-agent Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 753B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 1.26kB 0.0s done
+#2 DONE 0.6s
+
+#3 [internal] load metadata for docker.io/library/python:3.11-slim
+#3 DONE 2.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context:
+#4 transferring context: 2B 0.0s done
+#4 DONE 0.2s
+
+#5 [builder 1/5] FROM docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c
+#5 resolve docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c
+#5 ...
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#5 [builder 1/5] FROM docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c
+#5 resolve docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c 0.2s done
+#5 CACHED
+
+#7 [builder 2/5] WORKDIR /app
+#7 CACHED
+
+#8 [builder 3/5] RUN apt-get update && apt-get install -y gcc libpq-dev     && rm -rf /var/lib/apt/lists/*
+#8 ...
+
+#6 [internal] load build context
+#6 transferring context: 9.41kB 0.1s done
+#6 DONE 0.4s
+
+#9 [runtime 2/7] RUN groupadd -r agent && useradd -r -g agent -d /app agent
+#9 DONE 2.8s
+
+#10 [runtime 3/7] WORKDIR /app
+#10 DONE 0.3s
+
+#8 [builder 3/5] RUN apt-get update && apt-get install -y gcc libpq-dev     && rm -rf /var/lib/apt/lists/*
+#8 2.410 Hit:1 http://deb.debian.org/debian trixie InRelease
+#8 2.410 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#8 2.455 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#8 2.732 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9679 kB]
+#8 5.409 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [1108 B]
+#8 5.410 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [310 kB]
+#8 11.39 Fetched 10.1 MB in 9s (1064 kB/s)
+#8 11.39 Reading package lists...
+#8 15.80 Reading package lists...
+#8 19.86 Building dependency tree...
+#8 20.60 Reading state information...
+#8 21.38 The following additional packages will be installed:
+#8 21.38   binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-14
+#8 21.38   cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu gcc-14 gcc-14-x86-64-linux-gnu
+#8 21.39   gcc-x86-64-linux-gnu krb5-locales libasan8 libatomic1 libbinutils
+#8 21.39   libc-dev-bin libc6-dev libcc1-0 libcom-err2 libcrypt-dev libctf-nobfd0
+#8 21.39   libctf0 libgcc-14-dev libgomp1 libgprofng0 libgssapi-krb5-2 libhwasan0
+#8 21.39   libisl23 libitm1 libjansson4 libk5crypto3 libkeyutils1 libkrb5-3
+#8 21.40   libkrb5support0 libldap-common libldap2 liblsan0 libmpc3 libmpfr6 libpq5
+#8 21.40   libquadmath0 libsasl2-2 libsasl2-modules libsasl2-modules-db libsframe1
+#8 21.40   libssl-dev libtsan2 libubsan1 linux-libc-dev manpages manpages-dev
+#8 21.40   rpcsvc-proto
+#8 21.41 Suggested packages:
+#8 21.41   binutils-doc gprofng-gui binutils-gold cpp-doc gcc-14-locales cpp-14-doc
+#8 21.41   gcc-multilib make autoconf automake libtool flex bison gdb gcc-doc
+#8 21.41   gcc-14-multilib gcc-14-doc gdb-x86-64-linux-gnu libc-devtools glibc-doc
+#8 21.41   krb5-doc krb5-user postgresql-doc-17 libsasl2-modules-gssapi-mit
+#8 21.41   | libsasl2-modules-gssapi-heimdal libsasl2-modules-ldap libsasl2-modules-otp
+#8 21.41   libsasl2-modules-sql libssl-doc man-browser
+#8 22.48 The following NEW packages will be installed:
+#8 22.48   binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-14
+#8 22.48   cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu gcc gcc-14
+#8 22.48   gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu krb5-locales libasan8
+#8 22.48   libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcom-err2
+#8 22.48   libcrypt-dev libctf-nobfd0 libctf0 libgcc-14-dev libgomp1 libgprofng0
+#8 22.48   libgssapi-krb5-2 libhwasan0 libisl23 libitm1 libjansson4 libk5crypto3
+#8 22.49   libkeyutils1 libkrb5-3 libkrb5support0 libldap-common libldap2 liblsan0
+#8 22.49   libmpc3 libmpfr6 libpq-dev libpq5 libquadmath0 libsasl2-2 libsasl2-modules
+#8 22.49   libsasl2-modules-db libsframe1 libssl-dev libtsan2 libubsan1 linux-libc-dev
+#8 22.49   manpages manpages-dev rpcsvc-proto
+#8 23.07 0 upgraded, 53 newly installed, 0 to remove and 1 not upgraded.
+#8 23.07 Need to get 65.2 MB of archives.
+#8 23.07 After this operation, 245 MB of additional disk space will be used.
+#8 23.07 Get:1 http://deb.debian.org/debian-security trixie-security/main amd64 krb5-locales all 1.21.3-5+deb13u2 [102 kB]
+#8 23.34 Get:2 http://deb.debian.org/debian trixie/main amd64 manpages all 6.9.1-1 [1393 kB]
+#8 24.06 Get:3 http://deb.debian.org/debian trixie/main amd64 libsframe1 amd64 2.44-3 [78.4 kB]
+#8 24.09 Get:4 http://deb.debian.org/debian trixie/main amd64 binutils-common amd64 2.44-3 [2509 kB]
+#8 25.48 Get:5 http://deb.debian.org/debian trixie/main amd64 libbinutils amd64 2.44-3 [534 kB]
+#8 26.19 Get:6 http://deb.debian.org/debian trixie/main amd64 libgprofng0 amd64 2.44-3 [808 kB]
+#8 26.85 Get:7 http://deb.debian.org/debian trixie/main amd64 libctf-nobfd0 amd64 2.44-3 [156 kB]
+#8 26.98 Get:8 http://deb.debian.org/debian trixie/main amd64 libctf0 amd64 2.44-3 [88.6 kB]
+#8 27.04 Get:9 http://deb.debian.org/debian trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+#8 27.06 Get:10 http://deb.debian.org/debian trixie/main amd64 binutils-x86-64-linux-gnu amd64 2.44-3 [1014 kB]
+#8 27.68 Get:11 http://deb.debian.org/debian trixie/main amd64 binutils amd64 2.44-3 [265 kB]
+#8 27.78 Get:12 http://deb.debian.org/debian trixie/main amd64 libisl23 amd64 0.27-1 [659 kB]
+#8 28.05 Get:13 http://deb.debian.org/debian trixie/main amd64 libmpfr6 amd64 4.2.2-1 [729 kB]
+#8 28.21 Get:14 http://deb.debian.org/debian trixie/main amd64 libmpc3 amd64 1.3.1-1+b3 [52.2 kB]
+#8 28.23 Get:15 http://deb.debian.org/debian trixie/main amd64 cpp-14-x86-64-linux-gnu amd64 14.2.0-19 [11.0 MB]
+#8 43.61 Get:16 http://deb.debian.org/debian trixie/main amd64 cpp-14 amd64 14.2.0-19 [1280 B]
+#8 43.61 Get:17 http://deb.debian.org/debian trixie/main amd64 cpp-x86-64-linux-gnu amd64 4:14.2.0-1 [4840 B]
+#8 43.63 Get:18 http://deb.debian.org/debian trixie/main amd64 cpp amd64 4:14.2.0-1 [1568 B]
+#8 43.63 Get:19 http://deb.debian.org/debian trixie/main amd64 libcc1-0 amd64 14.2.0-19 [42.8 kB]
+#8 43.63 Get:20 http://deb.debian.org/debian trixie/main amd64 libgomp1 amd64 14.2.0-19 [137 kB]
+#8 43.96 Get:21 http://deb.debian.org/debian trixie/main amd64 libitm1 amd64 14.2.0-19 [26.0 kB]
+#8 44.02 Get:22 http://deb.debian.org/debian trixie/main amd64 libatomic1 amd64 14.2.0-19 [9308 B]
+#8 44.02 Get:23 http://deb.debian.org/debian trixie/main amd64 libasan8 amd64 14.2.0-19 [2725 kB]
+#8 50.81 Get:24 http://deb.debian.org/debian trixie/main amd64 liblsan0 amd64 14.2.0-19 [1204 kB]
+#8 54.02 Get:25 http://deb.debian.org/debian trixie/main amd64 libtsan2 amd64 14.2.0-19 [2460 kB]
+#8 59.32 Get:26 http://deb.debian.org/debian trixie/main amd64 libubsan1 amd64 14.2.0-19 [1074 kB]
+#8 59.67 Get:27 http://deb.debian.org/debian trixie/main amd64 libhwasan0 amd64 14.2.0-19 [1488 kB]
+#8 60.57 Get:28 http://deb.debian.org/debian trixie/main amd64 libquadmath0 amd64 14.2.0-19 [145 kB]
+#8 60.65 Get:29 http://deb.debian.org/debian trixie/main amd64 libgcc-14-dev amd64 14.2.0-19 [2672 kB]
+#8 65.06 Get:30 http://deb.debian.org/debian trixie/main amd64 gcc-14-x86-64-linux-gnu amd64 14.2.0-19 [21.4 MB]
+#8 95.17 Get:31 http://deb.debian.org/debian trixie/main amd64 gcc-14 amd64 14.2.0-19 [540 kB]
+#8 96.48 Get:32 http://deb.debian.org/debian trixie/main amd64 gcc-x86-64-linux-gnu amd64 4:14.2.0-1 [1436 B]
+#8 96.49 Get:33 http://deb.debian.org/debian trixie/main amd64 gcc amd64 4:14.2.0-1 [5136 B]
+#8 96.50 Get:34 http://deb.debian.org/debian trixie/main amd64 libc-dev-bin amd64 2.41-12+deb13u5 [60.5 kB]
+#8 96.55 Get:35 http://deb.debian.org/debian-security trixie-security/main amd64 linux-libc-dev all 6.12.118-1 [3102 kB]
+#8 100.7 Get:36 http://deb.debian.org/debian trixie/main amd64 libcrypt-dev amd64 1:4.4.38-1 [119 kB]
+#8 100.7 Get:37 http://deb.debian.org/debian trixie/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#8 100.8 Get:38 http://deb.debian.org/debian trixie/main amd64 libc6-dev amd64 2.41-12+deb13u5 [1991 kB]
+#8 101.9 Get:39 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b12 [25.0 kB]
+#8 101.9 Get:40 http://deb.debian.org/debian-security trixie-security/main amd64 libkrb5support0 amd64 1.21.3-5+deb13u2 [34.0 kB]
+#8 101.9 Get:41 http://deb.debian.org/debian-security trixie-security/main amd64 libk5crypto3 amd64 1.21.3-5+deb13u2 [82.0 kB]
+#8 101.9 Get:42 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+#8 101.9 Get:43 http://deb.debian.org/debian-security trixie-security/main amd64 libkrb5-3 amd64 1.21.3-5+deb13u2 [328 kB]
+#8 102.2 Get:44 http://deb.debian.org/debian-security trixie-security/main amd64 libgssapi-krb5-2 amd64 1.21.3-5+deb13u2 [139 kB]
+#8 102.3 Get:45 http://deb.debian.org/debian trixie/main amd64 libldap-common all 2.6.10+dfsg-1 [35.1 kB]
+#8 102.3 Get:46 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+#8 102.3 Get:47 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+#8 102.3 Get:48 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+#8 102.4 Get:49 http://deb.debian.org/debian trixie/main amd64 libpq5 amd64 17.12-0+deb13u1 [236 kB]
+#8 102.6 Get:50 http://deb.debian.org/debian trixie/main amd64 libssl-dev amd64 3.5.9-1~deb13u1 [2976 kB]
+#8 104.6 Get:51 http://deb.debian.org/debian trixie/main amd64 libpq-dev amd64 17.12-0+deb13u1 [159 kB]
+#8 104.7 Get:52 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules amd64 2.1.28+dfsg1-9 [66.7 kB]
+#8 104.7 Get:53 http://deb.debian.org/debian trixie/main amd64 manpages-dev all 6.9.1-1 [2122 kB]
+#8 106.7 debconf: unable to initialize frontend: Dialog
+#8 106.7 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#8 106.7 debconf: falling back to frontend: Readline
+#8 106.7 debconf: unable to initialize frontend: Readline
+#8 106.7 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 53.)
+#8 106.7 debconf: falling back to frontend: Teletype
+#8 106.8 debconf: unable to initialize frontend: Teletype
+#8 106.8 debconf: (This frontend requires a controlling tty.)
+#8 106.8 debconf: falling back to frontend: Noninteractive
+#8 118.4 Fetched 65.2 MB in 1min 23s (787 kB/s)
+#8 118.5 Selecting previously unselected package krb5-locales.
+#8 118.5 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 5657 files and directories currently installed.)
+#8 118.5 Preparing to unpack .../00-krb5-locales_1.21.3-5+deb13u2_all.deb ...
+#8 118.5 Unpacking krb5-locales (1.21.3-5+deb13u2) ...
+#8 118.6 Selecting previously unselected package manpages.
+#8 118.6 Preparing to unpack .../01-manpages_6.9.1-1_all.deb ...
+#8 118.6 Unpacking manpages (6.9.1-1) ...
+#8 118.8 Selecting previously unselected package libsframe1:amd64.
+#8 118.8 Preparing to unpack .../02-libsframe1_2.44-3_amd64.deb ...
+#8 118.9 Unpacking libsframe1:amd64 (2.44-3) ...
+#8 119.0 Selecting previously unselected package binutils-common:amd64.
+#8 119.0 Preparing to unpack .../03-binutils-common_2.44-3_amd64.deb ...
+#8 119.0 Unpacking binutils-common:amd64 (2.44-3) ...
+#8 119.4 Selecting previously unselected package libbinutils:amd64.
+#8 119.4 Preparing to unpack .../04-libbinutils_2.44-3_amd64.deb ...
+#8 119.4 Unpacking libbinutils:amd64 (2.44-3) ...
+#8 119.6 Selecting previously unselected package libgprofng0:amd64.
+#8 119.6 Preparing to unpack .../05-libgprofng0_2.44-3_amd64.deb ...
+#8 119.6 Unpacking libgprofng0:amd64 (2.44-3) ...
+#8 120.3 Selecting previously unselected package libctf-nobfd0:amd64.
+#8 120.3 Preparing to unpack .../06-libctf-nobfd0_2.44-3_amd64.deb ...
+#8 120.3 Unpacking libctf-nobfd0:amd64 (2.44-3) ...
+#8 121.6 Selecting previously unselected package libctf0:amd64.
+#8 121.6 Preparing to unpack .../07-libctf0_2.44-3_amd64.deb ...
+#8 121.6 Unpacking libctf0:amd64 (2.44-3) ...
+#8 121.7 Selecting previously unselected package libjansson4:amd64.
+#8 121.7 Preparing to unpack .../08-libjansson4_2.14-2+b3_amd64.deb ...
+#8 121.8 Unpacking libjansson4:amd64 (2.14-2+b3) ...
+#8 121.9 Selecting previously unselected package binutils-x86-64-linux-gnu.
+#8 121.9 Preparing to unpack .../09-binutils-x86-64-linux-gnu_2.44-3_amd64.deb ...
+#8 121.9 Unpacking binutils-x86-64-linux-gnu (2.44-3) ...
+#8 122.3 Selecting previously unselected package binutils.
+#8 122.3 Preparing to unpack .../10-binutils_2.44-3_amd64.deb ...
+#8 122.3 Unpacking binutils (2.44-3) ...
+#8 122.4 Selecting previously unselected package libisl23:amd64.
+#8 122.4 Preparing to unpack .../11-libisl23_0.27-1_amd64.deb ...
+#8 122.5 Unpacking libisl23:amd64 (0.27-1) ...
+#8 122.7 Selecting previously unselected package libmpfr6:amd64.
+#8 122.7 Preparing to unpack .../12-libmpfr6_4.2.2-1_amd64.deb ...
+#8 122.7 Unpacking libmpfr6:amd64 (4.2.2-1) ...
+#8 122.9 Selecting previously unselected package libmpc3:amd64.
+#8 122.9 Preparing to unpack .../13-libmpc3_1.3.1-1+b3_amd64.deb ...
+#8 122.9 Unpacking libmpc3:amd64 (1.3.1-1+b3) ...
+#8 123.0 Selecting previously unselected package cpp-14-x86-64-linux-gnu.
+#8 123.0 Preparing to unpack .../14-cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#8 123.0 Unpacking cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 125.6 Selecting previously unselected package cpp-14.
+#8 125.6 Preparing to unpack .../15-cpp-14_14.2.0-19_amd64.deb ...
+#8 125.6 Unpacking cpp-14 (14.2.0-19) ...
+#8 125.7 Selecting previously unselected package cpp-x86-64-linux-gnu.
+#8 125.7 Preparing to unpack .../16-cpp-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#8 125.7 Unpacking cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 127.0 Selecting previously unselected package cpp.
+#8 127.0 Preparing to unpack .../17-cpp_4%3a14.2.0-1_amd64.deb ...
+#8 127.1 Unpacking cpp (4:14.2.0-1) ...
+#8 127.4 Selecting previously unselected package libcc1-0:amd64.
+#8 127.4 Preparing to unpack .../18-libcc1-0_14.2.0-19_amd64.deb ...
+#8 127.4 Unpacking libcc1-0:amd64 (14.2.0-19) ...
+#8 127.8 Selecting previously unselected package libgomp1:amd64.
+#8 127.8 Preparing to unpack .../19-libgomp1_14.2.0-19_amd64.deb ...
+#8 127.9 Unpacking libgomp1:amd64 (14.2.0-19) ...
+#8 128.1 Selecting previously unselected package libitm1:amd64.
+#8 128.1 Preparing to unpack .../20-libitm1_14.2.0-19_amd64.deb ...
+#8 128.2 Unpacking libitm1:amd64 (14.2.0-19) ...
+#8 128.4 Selecting previously unselected package libatomic1:amd64.
+#8 128.4 Preparing to unpack .../21-libatomic1_14.2.0-19_amd64.deb ...
+#8 128.5 Unpacking libatomic1:amd64 (14.2.0-19) ...
+#8 129.0 Selecting previously unselected package libasan8:amd64.
+#8 129.0 Preparing to unpack .../22-libasan8_14.2.0-19_amd64.deb ...
+#8 129.1 Unpacking libasan8:amd64 (14.2.0-19) ...
+#8 130.1 Selecting previously unselected package liblsan0:amd64.
+#8 130.1 Preparing to unpack .../23-liblsan0_14.2.0-19_amd64.deb ...
+#8 130.1 Unpacking liblsan0:amd64 (14.2.0-19) ...
+#8 130.4 Selecting previously unselected package libtsan2:amd64.
+#8 130.4 Preparing to unpack .../24-libtsan2_14.2.0-19_amd64.deb ...
+#8 130.4 Unpacking libtsan2:amd64 (14.2.0-19) ...
+#8 130.9 Selecting previously unselected package libubsan1:amd64.
+#8 130.9 Preparing to unpack .../25-libubsan1_14.2.0-19_amd64.deb ...
+#8 130.9 Unpacking libubsan1:amd64 (14.2.0-19) ...
+#8 131.2 Selecting previously unselected package libhwasan0:amd64.
+#8 131.3 Preparing to unpack .../26-libhwasan0_14.2.0-19_amd64.deb ...
+#8 131.3 Unpacking libhwasan0:amd64 (14.2.0-19) ...
+#8 131.7 Selecting previously unselected package libquadmath0:amd64.
+#8 131.7 Preparing to unpack .../27-libquadmath0_14.2.0-19_amd64.deb ...
+#8 131.7 Unpacking libquadmath0:amd64 (14.2.0-19) ...
+#8 131.9 Selecting previously unselected package libgcc-14-dev:amd64.
+#8 131.9 Preparing to unpack .../28-libgcc-14-dev_14.2.0-19_amd64.deb ...
+#8 131.9 Unpacking libgcc-14-dev:amd64 (14.2.0-19) ...
+#8 132.6 Selecting previously unselected package gcc-14-x86-64-linux-gnu.
+#8 132.6 Preparing to unpack .../29-gcc-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#8 132.7 Unpacking gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 135.2 Selecting previously unselected package gcc-14.
+#8 135.2 Preparing to unpack .../30-gcc-14_14.2.0-19_amd64.deb ...
+#8 135.2 Unpacking gcc-14 (14.2.0-19) ...
+#8 135.4 Selecting previously unselected package gcc-x86-64-linux-gnu.
+#8 135.4 Preparing to unpack .../31-gcc-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#8 135.4 Unpacking gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 135.5 Selecting previously unselected package gcc.
+#8 135.5 Preparing to unpack .../32-gcc_4%3a14.2.0-1_amd64.deb ...
+#8 135.5 Unpacking gcc (4:14.2.0-1) ...
+#8 135.6 Selecting previously unselected package libc-dev-bin.
+#8 135.6 Preparing to unpack .../33-libc-dev-bin_2.41-12+deb13u5_amd64.deb ...
+#8 135.7 Unpacking libc-dev-bin (2.41-12+deb13u5) ...
+#8 135.8 Selecting previously unselected package linux-libc-dev.
+#8 135.8 Preparing to unpack .../34-linux-libc-dev_6.12.118-1_all.deb ...
+#8 135.9 Unpacking linux-libc-dev (6.12.118-1) ...
+#8 137.5 Selecting previously unselected package libcrypt-dev:amd64.
+#8 137.5 Preparing to unpack .../35-libcrypt-dev_1%3a4.4.38-1_amd64.deb ...
+#8 137.6 Unpacking libcrypt-dev:amd64 (1:4.4.38-1) ...
+#8 137.6 Selecting previously unselected package rpcsvc-proto.
+#8 137.7 Preparing to unpack .../36-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#8 137.7 Unpacking rpcsvc-proto (1.4.3-1) ...
+#8 137.8 Selecting previously unselected package libc6-dev:amd64.
+#8 137.8 Preparing to unpack .../37-libc6-dev_2.41-12+deb13u5_amd64.deb ...
+#8 137.8 Unpacking libc6-dev:amd64 (2.41-12+deb13u5) ...
+#8 138.0 Selecting previously unselected package libcom-err2:amd64.
+#8 138.0 Preparing to unpack .../38-libcom-err2_1.47.2-3+b12_amd64.deb ...
+#8 138.0 Unpacking libcom-err2:amd64 (1.47.2-3+b12) ...
+#8 138.1 Selecting previously unselected package libkrb5support0:amd64.
+#8 138.1 Preparing to unpack .../39-libkrb5support0_1.21.3-5+deb13u2_amd64.deb ...
+#8 138.1 Unpacking libkrb5support0:amd64 (1.21.3-5+deb13u2) ...
+#8 138.2 Selecting previously unselected package libk5crypto3:amd64.
+#8 138.2 Preparing to unpack .../40-libk5crypto3_1.21.3-5+deb13u2_amd64.deb ...
+#8 138.2 Unpacking libk5crypto3:amd64 (1.21.3-5+deb13u2) ...
+#8 138.3 Selecting previously unselected package libkeyutils1:amd64.
+#8 138.3 Preparing to unpack .../41-libkeyutils1_1.6.3-6_amd64.deb ...
+#8 138.4 Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+#8 138.5 Selecting previously unselected package libkrb5-3:amd64.
+#8 138.5 Preparing to unpack .../42-libkrb5-3_1.21.3-5+deb13u2_amd64.deb ...
+#8 138.5 Unpacking libkrb5-3:amd64 (1.21.3-5+deb13u2) ...
+#8 139.4 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#8 139.4 Preparing to unpack .../43-libgssapi-krb5-2_1.21.3-5+deb13u2_amd64.deb ...
+#8 139.5 Unpacking libgssapi-krb5-2:amd64 (1.21.3-5+deb13u2) ...
+#8 139.9 Selecting previously unselected package libldap-common.
+#8 139.9 Preparing to unpack .../44-libldap-common_2.6.10+dfsg-1_all.deb ...
+#8 139.9 Unpacking libldap-common (2.6.10+dfsg-1) ...
+#8 140.1 Selecting previously unselected package libsasl2-modules-db:amd64.
+#8 140.1 Preparing to unpack .../45-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+#8 140.1 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#8 140.3 Selecting previously unselected package libsasl2-2:amd64.
+#8 140.3 Preparing to unpack .../46-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+#8 140.4 Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#8 140.5 Selecting previously unselected package libldap2:amd64.
+#8 140.6 Preparing to unpack .../47-libldap2_2.6.10+dfsg-1_amd64.deb ...
+#8 140.6 Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+#8 140.9 Selecting previously unselected package libpq5:amd64.
+#8 140.9 Preparing to unpack .../48-libpq5_17.12-0+deb13u1_amd64.deb ...
+#8 140.9 Unpacking libpq5:amd64 (17.12-0+deb13u1) ...
+#8 141.2 Selecting previously unselected package libssl-dev:amd64.
+#8 141.2 Preparing to unpack .../49-libssl-dev_3.5.9-1~deb13u1_amd64.deb ...
+#8 141.3 Unpacking libssl-dev:amd64 (3.5.9-1~deb13u1) ...
+#8 142.0 Selecting previously unselected package libpq-dev.
+#8 142.0 Preparing to unpack .../50-libpq-dev_17.12-0+deb13u1_amd64.deb ...
+#8 142.0 Unpacking libpq-dev (17.12-0+deb13u1) ...
+#8 142.1 Selecting previously unselected package libsasl2-modules:amd64.
+#8 142.1 Preparing to unpack .../51-libsasl2-modules_2.1.28+dfsg1-9_amd64.deb ...
+#8 142.2 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg1-9) ...
+#8 142.3 Selecting previously unselected package manpages-dev.
+#8 142.3 Preparing to unpack .../52-manpages-dev_6.9.1-1_all.deb ...
+#8 142.3 Unpacking manpages-dev (6.9.1-1) ...
+#8 142.5 Setting up libkeyutils1:amd64 (1.6.3-6) ...
+#8 142.5 Setting up manpages (6.9.1-1) ...
+#8 142.6 Setting up libsasl2-modules:amd64 (2.1.28+dfsg1-9) ...
+#8 142.6 Setting up binutils-common:amd64 (2.44-3) ...
+#8 142.7 Setting up linux-libc-dev (6.12.118-1) ...
+#8 142.7 Setting up libctf-nobfd0:amd64 (2.44-3) ...
+#8 142.8 Setting up krb5-locales (1.21.3-5+deb13u2) ...
+#8 142.8 Setting up libcom-err2:amd64 (1.47.2-3+b12) ...
+#8 142.8 Setting up libgomp1:amd64 (14.2.0-19) ...
+#8 142.8 Setting up libldap-common (2.6.10+dfsg-1) ...
+#8 142.9 Setting up libsframe1:amd64 (2.44-3) ...
+#8 142.9 Setting up libjansson4:amd64 (2.14-2+b3) ...
+#8 142.9 Setting up libkrb5support0:amd64 (1.21.3-5+deb13u2) ...
+#8 143.1 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#8 143.2 Setting up rpcsvc-proto (1.4.3-1) ...
+#8 143.3 Setting up libmpfr6:amd64 (4.2.2-1) ...
+#8 143.4 Setting up libquadmath0:amd64 (14.2.0-19) ...
+#8 143.4 Setting up libssl-dev:amd64 (3.5.9-1~deb13u1) ...
+#8 143.4 Setting up libmpc3:amd64 (1.3.1-1+b3) ...
+#8 143.5 Setting up libatomic1:amd64 (14.2.0-19) ...
+#8 143.6 Setting up libk5crypto3:amd64 (1.21.3-5+deb13u2) ...
+#8 143.8 Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#8 144.0 Setting up libubsan1:amd64 (14.2.0-19) ...
+#8 144.2 Setting up libhwasan0:amd64 (14.2.0-19) ...
+#8 144.4 Setting up libcrypt-dev:amd64 (1:4.4.38-1) ...
+#8 144.6 Setting up libasan8:amd64 (14.2.0-19) ...
+#8 144.7 Setting up libkrb5-3:amd64 (1.21.3-5+deb13u2) ...
+#8 144.9 Setting up libtsan2:amd64 (14.2.0-19) ...
+#8 145.1 Setting up libbinutils:amd64 (2.44-3) ...
+#8 145.4 Setting up libisl23:amd64 (0.27-1) ...
+#8 145.5 Setting up libc-dev-bin (2.41-12+deb13u5) ...
+#8 145.9 Setting up libcc1-0:amd64 (14.2.0-19) ...
+#8 146.1 Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+#8 146.4 Setting up liblsan0:amd64 (14.2.0-19) ...
+#8 146.5 Setting up libitm1:amd64 (14.2.0-19) ...
+#8 146.6 Setting up libctf0:amd64 (2.44-3) ...
+#8 146.8 Setting up manpages-dev (6.9.1-1) ...
+#8 147.0 Setting up libgprofng0:amd64 (2.44-3) ...
+#8 147.1 Setting up libgssapi-krb5-2:amd64 (1.21.3-5+deb13u2) ...
+#8 147.2 Setting up cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 147.3 Setting up cpp-14 (14.2.0-19) ...
+#8 147.4 Setting up libc6-dev:amd64 (2.41-12+deb13u5) ...
+#8 147.5 Setting up libgcc-14-dev:amd64 (14.2.0-19) ...
+#8 147.6 Setting up binutils-x86-64-linux-gnu (2.44-3) ...
+#8 147.7 Setting up cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 147.9 Setting up libpq5:amd64 (17.12-0+deb13u1) ...
+#8 148.0 Setting up libpq-dev (17.12-0+deb13u1) ...
+#8 148.2 Setting up binutils (2.44-3) ...
+#8 148.3 Setting up cpp (4:14.2.0-1) ...
+#8 148.6 Setting up gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 148.8 Setting up gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 149.0 Setting up gcc-14 (14.2.0-19) ...
+#8 149.1 Setting up gcc (4:14.2.0-1) ...
+#8 149.5 Processing triggers for libc-bin (2.41-12+deb13u5) ...
+#8 DONE 150.4s
+
+#11 [builder 4/5] COPY requirements.txt .
+#11 DONE 0.3s
+
+#12 [builder 5/5] RUN pip install --no-cache-dir --user -r requirements.txt
+#12 8.120 Collecting fastapi==0.115.0 (from -r requirements.txt (line 1))
+#12 8.403   Downloading fastapi-0.115.0-py3-none-any.whl.metadata (27 kB)
+#12 8.666 Collecting uvicorn==0.30.0 (from uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 9.176   Downloading uvicorn-0.30.0-py3-none-any.whl.metadata (6.3 kB)
+#12 10.57 Collecting redis>=5.0.0 (from -r requirements.txt (line 3))
+#12 10.66   Downloading redis-8.2.0-py3-none-any.whl.metadata (18 kB)
+#12 11.10 Collecting starlette<0.39.0,>=0.37.2 (from fastapi==0.115.0->-r requirements.txt (line 1))
+#12 11.22   Downloading starlette-0.38.6-py3-none-any.whl.metadata (6.0 kB)
+#12 12.43 Collecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 (from fastapi==0.115.0->-r requirements.txt (line 1))
+#12 12.50   Downloading pydantic-2.14.4-py3-none-any.whl.metadata (143 kB)
+#12 13.05      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 144.0/144.0 kB 276.9 kB/s eta 0:00:00
+#12 13.29 Collecting typing-extensions>=4.8.0 (from fastapi==0.115.0->-r requirements.txt (line 1))
+#12 13.37   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#12 13.67 Collecting click>=7.0 (from uvicorn==0.30.0->uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 13.75   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#12 13.86 Collecting h11>=0.8 (from uvicorn==0.30.0->uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 13.94   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#12 14.51 Collecting httptools>=0.5.0 (from uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 14.59   Downloading httptools-0.9.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+#12 14.79 Collecting python-dotenv>=0.13 (from uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 14.87   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+#12 15.36 Collecting pyyaml>=5.1 (from uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 15.43   Downloading pyyaml-6.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.3 kB)
+#12 15.80 Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 15.87   Downloading uvloop-0.23.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.1 kB)
+#12 16.41 Collecting watchfiles>=0.13 (from uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 16.48   Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#12 17.51 Collecting websockets>=10.4 (from uvicorn[standard]==0.30.0->-r requirements.txt (line 2))
+#12 17.59   Downloading websockets-17.4-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)
+#12 17.85 Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.0->-r requirements.txt (line 1))
+#12 17.97   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#12 25.07 Collecting pydantic-core==2.50.5 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.0->-r requirements.txt (line 1))
+#12 25.17   Downloading pydantic_core-2.50.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.6 kB)
+#12 25.34 Collecting typing-inspection>=0.4.4 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.0->-r requirements.txt (line 1))
+#12 25.43   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+#12 25.70 Collecting anyio<5,>=3.4.0 (from starlette<0.39.0,>=0.37.2->fastapi==0.115.0->-r requirements.txt (line 1))
+#12 25.76   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+#12 26.25 Collecting idna>=2.8 (from anyio<5,>=3.4.0->starlette<0.39.0,>=0.37.2->fastapi==0.115.0->-r requirements.txt (line 1))
+#12 26.32   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#12 26.49 Downloading fastapi-0.115.0-py3-none-any.whl (94 kB)
+#12 26.84    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.6/94.6 kB 282.2 kB/s eta 0:00:00
+#12 26.91 Downloading uvicorn-0.30.0-py3-none-any.whl (62 kB)
+#12 27.14    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.4/62.4 kB 270.1 kB/s eta 0:00:00
+#12 27.19 Downloading redis-8.2.0-py3-none-any.whl (732 kB)
+#12 28.95    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 732.9/732.9 kB 421.4 kB/s eta 0:00:00
+#12 29.02 Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#12 29.27    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.2/126.2 kB 579.4 kB/s eta 0:00:00
+#12 29.33 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#12 29.44 Downloading httptools-0.9.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (499 kB)
+#12 30.26    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 499.1/499.1 kB 627.1 kB/s eta 0:00:00
+#12 30.40 Downloading pydantic-2.14.4-py3-none-any.whl (494 kB)
+#12 31.03    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.9/494.9 kB 770.6 kB/s eta 0:00:00
+#12 31.16 Downloading pydantic_core-2.50.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+#12 36.59    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 416.2 kB/s eta 0:00:00
+#12 36.64 Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+#12 36.73 Downloading pyyaml-6.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (828 kB)
+#12 38.11    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 828.0/828.0 kB 602.9 kB/s eta 0:00:00
+#12 38.18 Downloading starlette-0.38.6-py3-none-any.whl (71 kB)
+#12 38.29    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.5/71.5 kB 767.8 kB/s eta 0:00:00
+#12 38.37 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#12 38.44    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 810.7 kB/s eta 0:00:00
+#12 38.51 Downloading uvloop-0.23.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.0 MB)
+#12 46.43    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 499.1 kB/s eta 0:00:00
+#12 46.52 Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (458 kB)
+#12 47.00    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 458.4/458.4 kB 962.5 kB/s eta 0:00:00
+#12 47.09 Downloading websockets-17.4-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (226 kB)
+#12 47.36    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.0/226.0 kB 827.2 kB/s eta 0:00:00
+#12 47.42 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#12 47.49 Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+#12 47.61    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.5/134.5 kB 1.1 MB/s eta 0:00:00
+#12 47.69 Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+#12 47.77 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#12 47.83    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 1.2 MB/s eta 0:00:00
+#12 48.27 Installing collected packages: websockets, uvloop, typing-extensions, redis, pyyaml, python-dotenv, idna, httptools, h11, click, annotated-types, uvicorn, typing-inspection, pydantic-core, anyio, watchfiles, starlette, pydantic, fastapi
+#12 48.47   WARNING: The script websockets is installed in '/root/.local/bin' which is not on PATH.
+#12 48.47   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+#12 50.39   WARNING: The script dotenv is installed in '/root/.local/bin' which is not on PATH.
+#12 50.39   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+#12 50.53   WARNING: The script idna is installed in '/root/.local/bin' which is not on PATH.
+#12 50.53   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+#12 51.07   WARNING: The script uvicorn is installed in '/root/.local/bin' which is not on PATH.
+#12 51.07   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+#12 51.41   WARNING: The script watchfiles is installed in '/root/.local/bin' which is not on PATH.
+#12 51.41   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+#12 52.38   WARNING: The script fastapi is installed in '/root/.local/bin' which is not on PATH.
+#12 52.38   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+#12 52.55 Successfully installed annotated-types-0.8.0 anyio-4.16.0 click-8.5.1 fastapi-0.115.0 h11-0.16.0 httptools-0.9.0 idna-3.20 pydantic-2.14.4 pydantic-core-2.50.5 python-dotenv-1.2.4 pyyaml-6.0.4 redis-8.2.0 starlette-0.38.6 typing-extensions-4.16.0 typing-inspection-0.4.5 uvicorn-0.30.0 uvloop-0.23.0 watchfiles-1.3.0 websockets-17.4
+#12 52.55 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#12 52.99 
+#12 52.99 [notice] A new release of pip is available: 24.0 -> 26.3
+#12 52.99 [notice] To update, run: pip install --upgrade pip
+#12 DONE 54.8s
+
+#13 [runtime 4/7] COPY --from=builder /root/.local /home/agent/.local
+#13 DONE 0.6s
+
+#14 [runtime 5/7] COPY app.py .
+#14 DONE 0.2s
+
+#15 [runtime 6/7] COPY utils/ ./utils/
+#15 DONE 0.1s
+
+#16 [runtime 7/7] RUN chown -R agent:agent /app
+#16 DONE 0.4s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 6.2s done
+#17 exporting manifest sha256:84a6c692a36d9be2cbd26cb8edd5cf57808b46479f55fe8057970d83ba344757 0.1s done
+#17 exporting config sha256:d2c4a438197580f1cbb887ad0303e095581c5c5bf420f7739502a19e363e21d1 0.1s done
+#17 exporting attestation manifest sha256:82252ae1057076e0ddcc2b4c678dab80a927673fa02a31a03b62411ea5443645 0.1s done
+#17 exporting manifest list sha256:dc64bd52742a6bef7e545019de04a6c3b91dd1bea321da35c782135f39b0e06e
+#17 exporting manifest list sha256:dc64bd52742a6bef7e545019de04a6c3b91dd1bea321da35c782135f39b0e06e 0.0s done
+#17 naming to docker.io/library/k5-day14-scaling-agent:latest 0.0s done
+#17 unpacking to docker.io/library/k5-day14-scaling-agent:latest
+#17 unpacking to docker.io/library/k5-day14-scaling-agent:latest 1.3s done
+#17 DONE 7.9s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.1s
+ Image k5-day14-scaling-agent Built 
+ Network k5-day14-scaling_agent_net Creating 
+ Network k5-day14-scaling_agent_net Creating 
+ Network k5-day14-scaling_agent_net Created 
+ Network k5-day14-scaling_agent_net Created 
+ Container k5-day14-scaling-redis-1 Creating 
+ Container k5-day14-scaling-redis-1 Created 
+ Container k5-day14-scaling-agent-1 Creating 
+ Container k5-day14-scaling-agent-3 Creating 
+ Container k5-day14-scaling-agent-2 Creating 
+ Container k5-day14-scaling-agent-3 Created 
+ Container k5-day14-scaling-nginx-1 Creating 
+ Container k5-day14-scaling-agent-1 Created 
+ Container k5-day14-scaling-agent-2 Created 
+ Container k5-day14-scaling-nginx-1 Created 
+ Container k5-day14-scaling-redis-1 Starting 
+ Container k5-day14-scaling-redis-1 Started 
+ Container k5-day14-scaling-redis-1 Waiting 
+ Container k5-day14-scaling-redis-1 Healthy 
+ Container k5-day14-scaling-agent-1 Starting 
+ Container k5-day14-scaling-agent-1 Started 
+ Container k5-day14-scaling-agent-2 Starting 
+ Container k5-day14-scaling-agent-2 Started 
+ Container k5-day14-scaling-agent-3 Starting 
+ Container k5-day14-scaling-agent-3 Started 
+ Container k5-day14-scaling-nginx-1 Starting 
+ Container k5-day14-scaling-nginx-1 Started 

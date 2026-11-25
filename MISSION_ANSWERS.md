@@ -47,9 +47,17 @@ Reduction: **85.62%**, calculated as `(develop_bytes - production_bytes) / devel
 
 ### Exercise 2.4
 
+```mermaid
+flowchart LR
+  Client --> Nginx
+  Nginx --> Agent
+  Agent --> Redis
+  Agent --> Qdrant
+```
+
 Stack topology: Nginx -> agent -> Redis and Qdrant on the Compose network. Agent depends on Redis/Qdrant healthchecks; service DNS connects containers rather than localhost.
 
-Actual isolated smoke test using repository `02-docker/production/nginx/nginx.conf`: `/health` and JSON `POST /ask` through Nginx returned200. Used cached `nginx:1.28-alpine` because the alpine-tag pull stalled. Evidence: `reports/docker_examples_runtime.json`. This verifies Nginx -> production agent; the full Redis/Qdrant Compose stack has not been started for this exercise.
+Full stack executed with `docker compose -p k5-day14-docker up -d --build`. Redis and Qdrant became healthy; `/health`, `/ready` and JSON `POST /ask` through Nginx on port80 all returned200. Redis CLI returned PONG. Evidence: `reports/docker_fullstack_runtime.json`; direct container/image comparison: `reports/docker_examples_runtime.json`. Used cached `nginx:1.28-alpine` locally tagged `nginx:alpine` because the original alpine-tag pull stalled. Qdrant image `qdrant/qdrant:v1.9.0` was pulled successfully. Created empty ignored `.env.local` per README. Stack and task-specific volumes were removed afterward with `docker compose -p k5-day14-docker down -v`.
 
 ## Part 3 — Cloud Deployment
 
