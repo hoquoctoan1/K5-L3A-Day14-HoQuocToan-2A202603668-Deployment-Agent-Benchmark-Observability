@@ -1,0 +1,248 @@
+{
+  "trace_id": "26645d208c9077b5a816b68f258ea882",
+  "spans": [
+    {
+      "traceId": "26645d208c9077b5a816b68f258ea882",
+      "spanId": "73bdc42c4e61edfc",
+      "flags": 256,
+      "name": "POST /ask",
+      "kind": 2,
+      "startTimeUnixNano": "1795594635941856580",
+      "endTimeUnixNano": "1795594636838219156",
+      "attributes": [
+        {
+          "key": "http.flavor",
+          "value": {
+            "stringValue": "1.1"
+          }
+        },
+        {
+          "key": "http.host",
+          "value": {
+            "stringValue": "172.21.0.5:8000"
+          }
+        },
+        {
+          "key": "http.method",
+          "value": {
+            "stringValue": "POST"
+          }
+        },
+        {
+          "key": "http.route",
+          "value": {
+            "stringValue": "/ask"
+          }
+        },
+        {
+          "key": "http.scheme",
+          "value": {
+            "stringValue": "http"
+          }
+        },
+        {
+          "key": "http.server_name",
+          "value": {
+            "stringValue": "nginx"
+          }
+        },
+        {
+          "key": "http.status_code",
+          "value": {
+            "intValue": "503"
+          }
+        },
+        {
+          "key": "http.target",
+          "value": {
+            "stringValue": "/ask"
+          }
+        },
+        {
+          "key": "http.url",
+          "value": {
+            "stringValue": "http://nginx/ask"
+          }
+        },
+        {
+          "key": "http.user_agent",
+          "value": {
+            "stringValue": "python-requests/2.34.2"
+          }
+        },
+        {
+          "key": "net.host.port",
+          "value": {
+            "intValue": "8000"
+          }
+        },
+        {
+          "key": "net.peer.ip",
+          "value": {
+            "stringValue": "172.21.0.6"
+          }
+        },
+        {
+          "key": "net.peer.port",
+          "value": {
+            "intValue": "38450"
+          }
+        }
+      ],
+      "status": {
+        "code": 2
+      }
+    },
+    {
+      "traceId": "26645d208c9077b5a816b68f258ea882",
+      "spanId": "a17fedf3eb9e7aa2",
+      "parentSpanId": "ad62d634e3367a85",
+      "flags": 256,
+      "name": "agent.retrieve_context",
+      "kind": 1,
+      "startTimeUnixNano": "1795594636572175566",
+      "endTimeUnixNano": "1795594636645188064",
+      "attributes": [
+        {
+          "key": "retrieval.documents",
+          "value": {
+            "intValue": "1"
+          }
+        }
+      ],
+      "status": {}
+    },
+    {
+      "traceId": "26645d208c9077b5a816b68f258ea882",
+      "spanId": "3b0843e3243edd77",
+      "parentSpanId": "ad62d634e3367a85",
+      "flags": 256,
+      "name": "chat mock-llm-small",
+      "kind": 1,
+      "startTimeUnixNano": "1795594636645274664",
+      "endTimeUnixNano": "1795594636747973860",
+      "attributes": [
+        {
+          "key": "error.type",
+          "value": {
+            "stringValue": "upstream_unavailable"
+          }
+        },
+        {
+          "key": "gen_ai.operation.name",
+          "value": {
+            "stringValue": "chat"
+          }
+        },
+        {
+          "key": "gen_ai.provider.name",
+          "value": {
+            "stringValue": "mock"
+          }
+        },
+        {
+          "key": "gen_ai.request.model",
+          "value": {
+            "stringValue": "mock-llm-small"
+          }
+        }
+      ],
+      "events": [
+        {
+          "timeUnixNano": "1795594636747881660",
+          "name": "exception",
+          "attributes": [
+            {
+              "key": "exception.escaped",
+              "value": {
+                "stringValue": "False"
+              }
+            },
+            {
+              "key": "exception.message",
+              "value": {
+                "stringValue": "Upstream LLM error: 503 Service Unavailable (mock)"
+              }
+            },
+            {
+              "key": "exception.stacktrace",
+              "value": {
+                "stringValue": "Traceback (most recent call last):\n  File \"/app/app/main.py\", line 153, in run_agent\n    result = await mock_llm.generate(question, context=context,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/utils/mock_llm.py\", line 205, in generate\n    raise LLMError(\"Upstream LLM error: 503 Service Unavailable (mock)\")\nutils.mock_llm.LLMError: Upstream LLM error: 503 Service Unavailable (mock)\n"
+              }
+            },
+            {
+              "key": "exception.type",
+              "value": {
+                "stringValue": "utils.mock_llm.LLMError"
+              }
+            }
+          ]
+        }
+      ],
+      "status": {
+        "message": "LLMError: Upstream LLM error: 503 Service Unavailable (mock)",
+        "code": 2
+      }
+    },
+    {
+      "traceId": "26645d208c9077b5a816b68f258ea882",
+      "spanId": "ad62d634e3367a85",
+      "parentSpanId": "73bdc42c4e61edfc",
+      "flags": 256,
+      "name": "agent.run",
+      "kind": 1,
+      "startTimeUnixNano": "1795594636572019466",
+      "endTimeUnixNano": "1795594636748838760",
+      "attributes": [
+        {
+          "key": "agent.question.length",
+          "value": {
+            "intValue": "23"
+          }
+        },
+        {
+          "key": "agent.version",
+          "value": {
+            "stringValue": "v2"
+          }
+        }
+      ],
+      "events": [
+        {
+          "timeUnixNano": "1795594636748796960",
+          "name": "exception",
+          "attributes": [
+            {
+              "key": "exception.escaped",
+              "value": {
+                "stringValue": "False"
+              }
+            },
+            {
+              "key": "exception.message",
+              "value": {
+                "stringValue": "Upstream LLM error: 503 Service Unavailable (mock)"
+              }
+            },
+            {
+              "key": "exception.stacktrace",
+              "value": {
+                "stringValue": "Traceback (most recent call last):\n  File \"/home/agent/.local/lib/python3.11/site-packages/opentelemetry/trace/__init__.py\", line 602, in use_span\n    yield span\n  File \"/home/agent/.local/lib/python3.11/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1136, in start_as_current_span\n    yield span\n  File \"/home/agent/.local/lib/python3.11/site-packages/opentelemetry/trace/__init__.py\", line 441, in start_as_current_span\n    yield span\n  File \"/app/app/main.py\", line 153, in run_agent\n    result = await mock_llm.generate(question, context=context,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/utils/mock_llm.py\", line 205, in generate\n    raise LLMError(\"Upstream LLM error: 503 Service Unavailable (mock)\")\nutils.mock_llm.LLMError: Upstream LLM error: 503 Service Unavailable (mock)\n"
+              }
+            },
+            {
+              "key": "exception.type",
+              "value": {
+                "stringValue": "utils.mock_llm.LLMError"
+              }
+            }
+          ]
+        }
+      ],
+      "status": {
+        "message": "LLMError: Upstream LLM error: 503 Service Unavailable (mock)",
+        "code": 2
+      }
+    }
+  ]
+}
