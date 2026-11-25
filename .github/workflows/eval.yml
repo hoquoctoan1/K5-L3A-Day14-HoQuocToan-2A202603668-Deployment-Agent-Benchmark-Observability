@@ -1,0 +1,43 @@
+name: quality-gate
+on: [push, pull_request]
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: 06-lab-complete/benchmark-observability/develop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Evaluate agent and enforce accuracy
+        env:
+          AGENT_VERSION: v2
+          MOCK_ERROR_RATE: '0'
+          MOCK_SLOW_RATE: '0'
+        run: |
+          python app.py > agent.log 2>&1 &
+          agent_pid=$!
+          trap 'kill "$agent_pid" 2>/dev/null || true' EXIT
+          python - <<'PY'
+          import time, urllib.request
+          for attempt in range(60):
+              try:
+                  urllib.request.urlopen('http://localhost:8000/ready', timeout=1)
+                  break
+              except OSError:
+                  time.sleep(0.25)
+          else:
+              raise SystemExit('Agent did not become ready')
+          PY
+          python eval/run_eval.py --min-accuracy 0.85 --out reports/eval_ci.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evaluation-evidence
+          path: |
+            06-lab-complete/benchmark-observability/develop/reports/eval_ci.json
+            06-lab-complete/benchmark-observability/develop/agent.log
