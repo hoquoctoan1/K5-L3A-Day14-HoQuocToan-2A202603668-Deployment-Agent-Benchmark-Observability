@@ -37,7 +37,7 @@ curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$BASE/ask" \
   -H 'Content-Type: application/json' -H "X-API-Key: $AGENT_API_KEY" -d '{"question":"Hello"}'
 ```
 
-Chạy cả 4 kiểm tra cùng rate limit bằng script: `python scripts/verify_public_url.py "$BASE"` (key đọc từ biến môi trường, được che trong output; kết quả ghi ra `reports/public_url_checks.json`).
+Chạy cả 4 kiểm tra cùng rate limit bằng script: `python scripts/verify_public_url.py "$BASE"` (key đọc từ biến môi trường, được che trong output; khi chạy sẽ ghi kết quả ra file `public_url_checks.json` trong `reports/`, chưa có trong repo vì chưa chạy với key thật).
 
 ## Kết quả kiểm tra
 
@@ -46,6 +46,8 @@ Chạy cả 4 kiểm tra cùng rate limit bằng script: `python scripts/verify_
 | `GET /health` | 200 | ✅ 200 `{"status":"healthy","environment":"production"}` |
 | `GET /ready` | 200 | ✅ 200 `{"status":"ready"}` |
 | `POST /ask` không key | 401 | ✅ 401 |
+| `POST /ask` key sai | 401 | ✅ 401 |
+| `POST /ask` JSON hỏng | 4xx, không lộ stack trace | ✅ 422 |
 | `POST /ask` có key | 200 | ⏳ chờ chạy với key thật |
 | Rate limit | 429 | ⏳ chờ chạy với key thật |
 
