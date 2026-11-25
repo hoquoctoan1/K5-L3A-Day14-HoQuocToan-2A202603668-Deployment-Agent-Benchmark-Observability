@@ -1,6 +1,6 @@
 # Day 14 — Mission Answers
 
-Trạng thái: bài đang thực hiện; những phép đo chưa chạy được ghi rõ, không thay bằng số tham khảo. Code Part 6 nằm trong `06-lab-complete/` theo quy định K5.
+Trạng thái: đã hoàn thành Part 1–7 và deploy Render (https://day14-production-agent.onrender.com); mọi số liệu lấy từ lần chạy thật, phần nào chưa kiểm chứng được ghi rõ. Code Part 6 nằm trong `06-lab-complete/` theo quy định K5.
 
 ## Part 1 — Localhost vs Production
 
@@ -130,7 +130,7 @@ Chạy `.venv-benchmark/Scripts/python.exe scripts/verify_examples.py` trên Win
 | Yêu cầu giao AI | Kết quả nhận được | Kiểm tra do AI thực thi |
 |---|---|---|
 | Hoàn thiện các TODO Part 6 theo hợp đồng K5 | Config env, auth, Redis atomic rate limit, cost guard, health/readiness, JSON log | `ca2547f`; checker Linux nguyên bản PASS12/12 ở `c4da508` |
-| Đóng gói Docker và chuẩn bị cloud config | Multi-stage non-root, Compose Redis, Railway/Render | `018add7`, build/runtime `ed7c3fc`; chưa deploy cloud |
+| Đóng gói Docker và chuẩn bị cloud config | Multi-stage non-root, Compose Redis, Railway/Render | `018add7`, build/runtime `ed7c3fc`; deploy Render `e773daf` |
 | Trả lời Part 1–5 bằng code và bằng chứng thật | Mission answers, HTTP401/200/429, image size, Redis history qua3instance | `2132484`, `d551852`, `e41b976`; học viên chưa tự xác nhận |
 | Đo chất lượng/hiệu năng và sửa retrieval thiếu tài liệu | Baseline, histogram, KB JWT/HPA, fixed23/23, CI, load CSV/JSON | Các JSON/CSV đi kèm BENCHMARK_REPORT; không sửa golden dataset |
 

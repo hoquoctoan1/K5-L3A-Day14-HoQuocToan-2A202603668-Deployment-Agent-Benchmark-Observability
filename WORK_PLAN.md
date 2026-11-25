@@ -11,9 +11,9 @@ Theo README (điều chỉnh K5), RULES, CHECKPOINTS, SUBMISSION và RUBRIC. M�
 | 3 — Benchmark | T4 / agent benchmark | Baseline eval v1/v2 trước sửa; histogram, sửa KB, fixed eval 23/23, CI gate; JSON thực | Xong `e14db2e`, `013d0e5`; fixed 23/23, CI chưa chạy remote |
 | 3 — Load test | T5 / agent benchmark | 4 concurrency và 3 slow rate; 300 requests/lần; báo cáo khớp JSON | Xong `ee50ae6`, `cb5aa26`; c50/c100 vi phạm SLO |
 | 4 — Kiểm tra đầy đủ | T6 / điều phối + production | Checker đầy đủ PASS 12/12 trên Linux + Docker; image size, Part 2/5 runtime | Xong Part6 `c4da508` PASS12/12,43/43; image/scaling `d551852` |
-| 5 — Cloud | T7 / điều phối | Deploy Part 6 + Redis, public URL, 4 HTTP checks, 3 ảnh và DEPLOYMENT.md | Chờ người dùng: xác nhận chưa có tài khoản/phiên đăng nhập |
+| 5 — Cloud | T7 / điều phối | Deploy Part 6 + Redis, public URL, 4 HTTP checks, 3 ảnh và DEPLOYMENT.md | Xong: Render `e773daf`, URL https://day14-production-agent.onrender.com; checker `--public-url` PASS 44/44; 3 ảnh `3f56f1d` |
 | 6 — Observability | T8 / benchmark + điều phối | Locust scale 1/3 CSV, Grafana, trace chậm/lỗi + log, ≥2 alert firing cùng ảnh | API/log và CSV xong `606c40f`; scale `d3ee988`/`61ca7f4`; error-only `ac6bc62`; 4 ảnh Part 7 đã chụp (Chrome headless) |
-| 7 — Đóng gói bài | T9 / điều phối | Soát rubric, secret, đủ file/ảnh, cập nhật bảng và commit kết quả | Kiểm kê local xong; bài nộp còn thiếu cloud/ảnh và xác nhận tên/public repo |
+| 7 — Đóng gói bài | T9 / điều phối | Soát rubric, secret, đủ file/ảnh, cập nhật bảng và commit kết quả | Xong: đủ JSON/CSV/7 ảnh, số liệu khớp, repo public; còn học viên tự xác nhận AI log |
 
 ## Quy trình commit
 
@@ -31,7 +31,7 @@ Cập nhật: tìm thấy Docker Desktop tại `%LOCALAPPDATA%/Programs/DockerDe
 
 Một lượt cài dependency ban đầu dùng nhầm interpreter Python ở bài Day9 ngoài workspace. Agent đã khôi phục pydantic/pydantic-core/python-dotenv về phiên bản trước đó; các package mới cài thêm vẫn có trong interpreter đó. Các lần chạy tiếp dùng `.venv-benchmark` riêng và Linux container. Không có code bài Day9 bị sửa.
 
-Người dùng chọn bỏ qua ảnh sau khi automatic approval review chặn chọn cửa sổ Edge đang mở trang bài nộp riêng tư. Thu thập API/log thay thế để phân tích, nhưng không coi đó là bảy ảnh mà rubric yêu cầu.
+Ban đầu người dùng chọn bỏ qua ảnh do không chụp được cửa sổ trình duyệt; về sau đã chụp đủ (xem mục cuối).
 
 ## Điều kiện kết thúc
 
@@ -47,19 +47,16 @@ Bài chỉ hoàn thành toàn bộ khi có PASS 12/12 bản đầy đủ, URL cl
 - Rà soát: JSON parse thành công, CSV tổng hợp khớp báo cáo; `git diff --check` sạch; không có `.env` thật trong tracked files/lịch sử commit.
 - AI log nằm trong MISSION_ANSWERS; học viên chưa tự xác nhận đọc hiểu hoặc chạy lại.
 
-## Phần người dùng cần hoàn tất trước khi nộp
+## Hoàn thiện bài nộp
 
-1. Có tài khoản/phiên Railway hoặc Render, deploy Part6+Redis và điền URL thật; chạy bốn HTTP checks CP6.
-2. Bổ sung7 ảnh theo SUBMISSION nếu muốn đáp ứng đủ rubric; hiện không có ảnh theo lựa chọn bỏ qua của người dùng.
-3. Xác nhận lớpL3A/L3B, tên repo đúng mẫu và repoPublic. Không tự suy đoán hoặc đổi cấu hình repo từ xa.
-4. Tự đọc/giải thích code, kiểm tra lại số liệu và bổ sung phần tự kiểm tra trong AI log, rồi nộp link repo trênLMS.
+Lớp **L3A**. Repo public: `https://github.com/hoquoctoan1/K5-L3A-Day14-HoQuocToan-2A202603668-Deployment-Agent-Benchmark-Observability`. Người dùng chọn giữ tên này (khác mẫu SUBMISSION ở `Day14` và `-Agent-`), chấp nhận rủi ro trừ điểm tên repo.
 
-## Tiếp tục hoàn thiện bài nộp
+- Ảnh Part 7 (4): chụp bằng Chrome headless từ stack chạy thật; chaos riêng cho ảnh alert (error 94.7 s, latency 149.9 s), bằng chứng `reports/screenshot_run/`, `reports/chaos_screenshot_alerts.json`.
+- Deploy Render bằng Blueprint `06-lab-complete/render.yaml` (web + Key Value, free, Singapore). Học viên tự đăng nhập và tạo Blueprint. `/health` 200, `/ready` 200, `/ask` không key 401; checker gốc với `--public-url` PASS 12/12, 44/44 (`reports/production_public_url.txt`).
+- Ảnh deploy (3): `dashboard.png` ghép từ ảnh học viên chụp trên Render; `running.png` và `test.png` từ request thật tới URL public.
+- `RATE_LIMIT_PER_MINUTE` trên Render chỉnh từ 60 về 10 cho khớp `.env.example` và yêu cầu đề (Blueprint tự đồng bộ khi push).
 
-Người dùng đã yêu cầu tiếp tục tất cả giai đoạn, bao gồm ảnh; lựa chọn bỏ qua ảnh trước đó không còn áp dụng. Đã xác nhận lớp **L3A**. Tên repo cần dùng: `K5-L3A-DAY14-HoQuocToan-2A202603668-Deployment-Benchmark-Observability`.
+## Còn lại
 
-- Đã push các commit bài làm lên origin/main thành công, tới `5f27c82` tại lần kiểm tra này.
-- Repo hiện tại trả HTTP200 khi truy cập không đăng nhập, xác nhận public. Chưa đổi tên repo từ xa.
-- Blueprint Render đã chuẩn bị web+Redis cùng region, explicit free plans, Redis chặn truy cập public; kiểm tra YAML local đạt, chưa gọi Render để tạo dịch vụ.
-- Đã đề nghị kết nối GitHub/Render và người dùng tự đăng nhập/chấp nhận điều khoản. Chưa xác nhận kết nối thành công.
-- Stack observability đã mở lại, tạo tải và thu bằng chứng riêng ở `reports/screenshot_run/`, không ghi đè số đo ban đầu. Đã chụp 4 ảnh Part 7 bằng Chrome headless (không cần điều khiển cửa sổ người dùng); chaos bổ sung cho ảnh alert: error 94.7 s, latency 149.9 s. Còn thiếu 3 ảnh deploy, phụ thuộc deploy Render.
+1. `/ask` có key → 200 và rate limit → 429 trên URL public chưa chạy: cần key thật từ Render (chỉ đặt trong biến môi trường, không ghi vào file), rồi chạy `python scripts/verify_public_url.py https://day14-production-agent.onrender.com`.
+2. Học viên tự đọc lại code/báo cáo và tự ghi phần xác nhận trong AI log (`MISSION_ANSWERS.md`), rồi nộp link repo trên LMS.

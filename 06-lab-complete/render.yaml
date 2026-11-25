@@ -21,7 +21,7 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: RATE_LIMIT_PER_MINUTE
-        value: "60"
+        value: "10"
       - key: DAILY_BUDGET_USD
         value: "1.0"
   - type: keyvalue

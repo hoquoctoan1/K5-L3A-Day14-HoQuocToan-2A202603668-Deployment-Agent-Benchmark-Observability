@@ -60,7 +60,7 @@ Checker gốc chạy đầy đủ (Linux container, Docker thật) kèm `--publi
 | `AGENT_API_KEY` | Render tự sinh (`generateValue: true`), secret |
 | `REDIS_URL` | Tham chiếu `connectionString` của `day14-agent-redis` (`fromService`) |
 | `ENVIRONMENT` | `production` |
-| `RATE_LIMIT_PER_MINUTE` | Đặt trong Blueprint |
+| `RATE_LIMIT_PER_MINUTE` | `10` (Blueprint, khớp `.env.example` và yêu cầu 10 req/phút) |
 | `DAILY_BUDGET_USD` | `1.0` |
 | `PORT` | Render cấp tự động; app đọc biến này |
 
