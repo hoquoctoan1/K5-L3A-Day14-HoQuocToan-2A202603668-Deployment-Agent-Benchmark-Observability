@@ -1,0 +1,11 @@
+{
+  "baseline_stopped_at_utc": "2026-11-25T08:42:40.011960+00:00",
+  "response": {
+    "message": "Test stopped",
+    "success": true
+  },
+  "verified_state": "stopped",
+  "user_count": 0,
+  "dashboard_time_range_hint": "Use last 15 minutes to include baseline load; inspect captured_at_utc in observability_evidence.json for exact capture time.",
+  "stack_left_running": true
+}
