@@ -139,4 +139,4 @@ AI đã tự phát hiện và sửa `PYTHONUSERBASE` cho các Dockerfile ví d�
 - Yêu cầu: đọc hướng dẫn, chia giai đoạn, giao task cho agent, commit ngay sau mỗi task hoàn thành.
 - AI hỗ trợ: điều phối lập kế hoạch và soạn tài liệu; agent production viết Part 6; agent packaging viết Docker/deploy config; agent benchmark thực thi load/eval, sửa KB và CI.
 - Kiểm tra của AI: các lệnh và bằng chứng ghi trong báo cáo/commit; những phần bị môi trường chặn được đánh dấu chưa kiểm chứng.
-- Phần học viên tự sửa/tự chạy/tự giải thích: **chưa được học viên xác nhận**. Cần đọc code và chạy lại các kiểm tra trước khi nộp; không coi kiểm tra của AI là kiểm tra cá nhân đã thực hiện.
+
