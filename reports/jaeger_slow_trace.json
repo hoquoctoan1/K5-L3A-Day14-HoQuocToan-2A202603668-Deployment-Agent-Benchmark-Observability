@@ -1,15 +1,15 @@
 {
-  "trace_id": "9f5f0fe1b90fcecbf40d5eec7e872063",
+  "trace_id": "8d40ee9544b144ebd1c75341492050ca",
   "spans": [
     {
-      "traceId": "9f5f0fe1b90fcecbf40d5eec7e872063",
-      "spanId": "102dc15431d7341f",
-      "parentSpanId": "2e94d2864a52d1a0",
+      "traceId": "8d40ee9544b144ebd1c75341492050ca",
+      "spanId": "9675147e0106a081",
+      "parentSpanId": "3dbc6ca315d7a04c",
       "flags": 256,
       "name": "agent.retrieve_context",
       "kind": 1,
-      "startTimeUnixNano": "1795594632258843702",
-      "endTimeUnixNano": "1795594632664750100",
+      "startTimeUnixNano": "1795594789326600696",
+      "endTimeUnixNano": "1795594789348652896",
       "attributes": [
         {
           "key": "retrieval.documents",
@@ -21,14 +21,14 @@
       "status": {}
     },
     {
-      "traceId": "9f5f0fe1b90fcecbf40d5eec7e872063",
-      "spanId": "3877af17f5404bde",
-      "parentSpanId": "2e94d2864a52d1a0",
+      "traceId": "8d40ee9544b144ebd1c75341492050ca",
+      "spanId": "665e9868595b92d0",
+      "parentSpanId": "3dbc6ca315d7a04c",
       "flags": 256,
       "name": "chat mock-llm-small",
       "kind": 1,
-      "startTimeUnixNano": "1795594632664887700",
-      "endTimeUnixNano": "1795594634335485090",
+      "startTimeUnixNano": "1795594789348841596",
+      "endTimeUnixNano": "1795594791047138395",
       "attributes": [
         {
           "key": "gen_ai.operation.name",
@@ -51,38 +51,38 @@
         {
           "key": "gen_ai.usage.input_tokens",
           "value": {
-            "intValue": "73"
+            "intValue": "83"
           }
         },
         {
           "key": "gen_ai.usage.output_tokens",
           "value": {
-            "intValue": "35"
+            "intValue": "44"
           }
         },
         {
           "key": "llm.cost_usd",
           "value": {
-            "doubleValue": 3.195e-05
+            "doubleValue": 3.8849999999999996e-05
           }
         }
       ],
       "status": {}
     },
     {
-      "traceId": "9f5f0fe1b90fcecbf40d5eec7e872063",
-      "spanId": "2e94d2864a52d1a0",
-      "parentSpanId": "d68350c6f9595fe1",
+      "traceId": "8d40ee9544b144ebd1c75341492050ca",
+      "spanId": "3dbc6ca315d7a04c",
+      "parentSpanId": "8cae90817671ab31",
       "flags": 256,
       "name": "agent.run",
       "kind": 1,
-      "startTimeUnixNano": "1795594632258746302",
-      "endTimeUnixNano": "1795594634335608790",
+      "startTimeUnixNano": "1795594789326496596",
+      "endTimeUnixNano": "1795594791047270295",
       "attributes": [
         {
           "key": "agent.question.length",
           "value": {
-            "intValue": "51"
+            "intValue": "49"
           }
         },
         {
@@ -95,13 +95,13 @@
       "status": {}
     },
     {
-      "traceId": "9f5f0fe1b90fcecbf40d5eec7e872063",
-      "spanId": "d68350c6f9595fe1",
+      "traceId": "8d40ee9544b144ebd1c75341492050ca",
+      "spanId": "8cae90817671ab31",
       "flags": 256,
       "name": "POST /ask",
       "kind": 2,
-      "startTimeUnixNano": "1795594631532406807",
-      "endTimeUnixNano": "1795594634337342790",
+      "startTimeUnixNano": "1795594789141035496",
+      "endTimeUnixNano": "1795594791050746195",
       "attributes": [
         {
           "key": "http.flavor",
@@ -178,7 +178,7 @@
         {
           "key": "net.peer.port",
           "value": {
-            "intValue": "40566"
+            "intValue": "44192"
           }
         }
       ],

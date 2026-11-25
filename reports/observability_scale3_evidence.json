@@ -1,0 +1,296 @@
+{
+  "captured_at_utc": "2026-11-25T08:19:54.804024+00:00",
+  "queries": {
+    "rps_by_instance": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "instance": "172.21.0.5:8000"
+            },
+            "value": [
+              1795594794.978,
+              "19.945454545454545"
+            ]
+          },
+          {
+            "metric": {
+              "instance": "172.21.0.9:8000"
+            },
+            "value": [
+              1795594794.978,
+              "16.672836999999998"
+            ]
+          },
+          {
+            "metric": {
+              "instance": "172.21.0.8:8000"
+            },
+            "value": [
+              1795594794.978,
+              "16.60345511111111"
+            ]
+          }
+        ]
+      }
+    },
+    "p95_seconds": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795594794.986,
+              "1.1964696306050333"
+            ]
+          }
+        ]
+      }
+    },
+    "avg_seconds": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795594794.999,
+              "0.34752113058024714"
+            ]
+          }
+        ]
+      }
+    },
+    "tokens_per_second": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "type": "input"
+            },
+            "value": [
+              1795594795.005,
+              "4094.149352212121"
+            ]
+          },
+          {
+            "metric": {
+              "type": "output"
+            },
+            "value": [
+              1795594795.005,
+              "2137.9999047575757"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "grafana_health": {
+    "database": "ok",
+    "version": "13.2.4",
+    "commit": "0e79aef9d91abf3bdadae9af15763029072fb45b"
+  },
+  "grafana_dashboards": [
+    {
+      "id": 4308129877135360,
+      "uid": "day14-agent-overview",
+      "orgId": 1,
+      "title": "Day 14 — AI Agent Overview",
+      "uri": "db/day-14-e28094-ai-agent-overview",
+      "url": "/d/day14-agent-overview/day-14-e28094-ai-agent-overview",
+      "slug": "",
+      "type": "dash-db",
+      "tags": [
+        "agent",
+        "day14",
+        "llm"
+      ],
+      "isStarred": false,
+      "folderId": 4308129448763392,
+      "folderUid": "eg5ck4kq3pkowa",
+      "folderTitle": "Day 14 - Agent Observability",
+      "folderUrl": "/dashboards/f/eg5ck4kq3pkowa/day-14-agent-observability",
+      "sortMeta": 0,
+      "isDeleted": false
+    }
+  ],
+  "public_metrics_status": 404,
+  "alerts": {
+    "status": "success",
+    "data": {
+      "alerts": [
+        {
+          "labels": {
+            "alertname": "LLMCostBurnRateHigh",
+            "severity": "warning"
+          },
+          "annotations": {
+            "description": "Tốc độ chi tiêu hiện tại: $3.32/giờ",
+            "summary": "Chi phí LLM đang vượt $2/giờ"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-25T08:18:37.571501534Z",
+          "value": "3.3207862239674975e+00"
+        },
+        {
+          "labels": {
+            "alertname": "AgentHighLatencyP95",
+            "severity": "warning"
+          },
+          "annotations": {
+            "description": "p95 hiện tại: 1.23s (SLO: < 1s)",
+            "summary": "p95 latency /ask vượt 1 giây"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-25T08:16:42.401817116Z",
+          "value": "1.2299639438605772e+00"
+        }
+      ]
+    }
+  },
+  "slow_trace": {
+    "trace_id": "8d40ee9544b144ebd1c75341492050ca",
+    "duration_ms": 1909.710699,
+    "matching_logs": [
+      "agent-1  | {\"ts\": \"2026-11-25T08:19:51.047384+00:00\", \"level\": \"INFO\", \"service\": \"observable-agent\", \"instance\": \"88861091c51b\", \"event\": \"llm_call\", \"trace_id\": \"8d40ee9544b144ebd1c75341492050ca\", \"span_id\": \"8cae90817671ab31\", \"request_id\": \"a7fcaadb2d92\", \"model\": \"mock-llm-small\", \"agent_version\": \"v2\", \"input_tokens\": 83, \"output_tokens\": 44, \"cost_usd\": 3.9e-05, \"llm_ms\": 1695.4}",
+      "agent-1  | {\"ts\": \"2026-11-25T08:19:51.049519+00:00\", \"level\": \"INFO\", \"service\": \"observable-agent\", \"instance\": \"88861091c51b\", \"event\": \"http_request\", \"trace_id\": \"8d40ee9544b144ebd1c75341492050ca\", \"span_id\": \"8cae90817671ab31\", \"request_id\": \"a7fcaadb2d92\", \"method\": \"POST\", \"route\": \"/ask\", \"status\": 200, \"ms\": 1905.4}"
+    ],
+    "longest_processing_span": {
+      "traceId": "8d40ee9544b144ebd1c75341492050ca",
+      "spanId": "665e9868595b92d0",
+      "parentSpanId": "3dbc6ca315d7a04c",
+      "flags": 256,
+      "name": "chat mock-llm-small",
+      "kind": 1,
+      "startTimeUnixNano": "1795594789348841596",
+      "endTimeUnixNano": "1795594791047138395",
+      "attributes": [
+        {
+          "key": "gen_ai.operation.name",
+          "value": {
+            "stringValue": "chat"
+          }
+        },
+        {
+          "key": "gen_ai.provider.name",
+          "value": {
+            "stringValue": "mock"
+          }
+        },
+        {
+          "key": "gen_ai.request.model",
+          "value": {
+            "stringValue": "mock-llm-small"
+          }
+        },
+        {
+          "key": "gen_ai.usage.input_tokens",
+          "value": {
+            "intValue": "83"
+          }
+        },
+        {
+          "key": "gen_ai.usage.output_tokens",
+          "value": {
+            "intValue": "44"
+          }
+        },
+        {
+          "key": "llm.cost_usd",
+          "value": {
+            "doubleValue": 3.8849999999999996e-05
+          }
+        }
+      ],
+      "status": {}
+    }
+  },
+  "error_trace": {
+    "trace_id": "fd78e948b44dd28e1aebac8b1c9460c9",
+    "duration_ms": 114.0406,
+    "matching_logs": [
+      "agent-1  | {\"ts\": \"2026-11-25T08:19:51.046531+00:00\", \"level\": \"INFO\", \"service\": \"observable-agent\", \"instance\": \"88861091c51b\", \"event\": \"llm_error\", \"trace_id\": \"fd78e948b44dd28e1aebac8b1c9460c9\", \"span_id\": \"bac415b5ac78bfa1\", \"request_id\": \"9877d09a9d0e\", \"error\": \"Upstream LLM error: 503 Service Unavailable (mock)\"}",
+      "agent-1  | {\"ts\": \"2026-11-25T08:19:51.048677+00:00\", \"level\": \"INFO\", \"service\": \"observable-agent\", \"instance\": \"88861091c51b\", \"event\": \"http_request\", \"trace_id\": \"fd78e948b44dd28e1aebac8b1c9460c9\", \"span_id\": \"bac415b5ac78bfa1\", \"request_id\": \"9877d09a9d0e\", \"method\": \"POST\", \"route\": \"/ask\", \"status\": 503, \"ms\": 112.0}"
+    ],
+    "longest_processing_span": {
+      "traceId": "fd78e948b44dd28e1aebac8b1c9460c9",
+      "spanId": "a0c13f0a92e093b0",
+      "parentSpanId": "2d8e30b906f26629",
+      "flags": 256,
+      "name": "chat mock-llm-small",
+      "kind": 1,
+      "startTimeUnixNano": "1795594790962077495",
+      "endTimeUnixNano": "1795594791044781295",
+      "attributes": [
+        {
+          "key": "error.type",
+          "value": {
+            "stringValue": "upstream_unavailable"
+          }
+        },
+        {
+          "key": "gen_ai.operation.name",
+          "value": {
+            "stringValue": "chat"
+          }
+        },
+        {
+          "key": "gen_ai.provider.name",
+          "value": {
+            "stringValue": "mock"
+          }
+        },
+        {
+          "key": "gen_ai.request.model",
+          "value": {
+            "stringValue": "mock-llm-small"
+          }
+        }
+      ],
+      "events": [
+        {
+          "timeUnixNano": "1795594791044578595",
+          "name": "exception",
+          "attributes": [
+            {
+              "key": "exception.escaped",
+              "value": {
+                "stringValue": "False"
+              }
+            },
+            {
+              "key": "exception.message",
+              "value": {
+                "stringValue": "Upstream LLM error: 503 Service Unavailable (mock)"
+              }
+            },
+            {
+              "key": "exception.stacktrace",
+              "value": {
+                "stringValue": "Traceback (most recent call last):\n  File \"/app/app/main.py\", line 153, in run_agent\n    result = await mock_llm.generate(question, context=context,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/utils/mock_llm.py\", line 205, in generate\n    raise LLMError(\"Upstream LLM error: 503 Service Unavailable (mock)\")\nutils.mock_llm.LLMError: Upstream LLM error: 503 Service Unavailable (mock)\n"
+              }
+            },
+            {
+              "key": "exception.type",
+              "value": {
+                "stringValue": "utils.mock_llm.LLMError"
+              }
+            }
+          ]
+        }
+      ],
+      "status": {
+        "message": "LLMError: Upstream LLM error: 503 Service Unavailable (mock)",
+        "code": 2
+      }
+    }
+  }
+}
