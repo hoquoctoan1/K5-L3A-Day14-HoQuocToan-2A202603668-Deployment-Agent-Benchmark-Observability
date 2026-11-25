@@ -7,12 +7,12 @@ Theo README (điều chỉnh K5), RULES, CHECKPOINTS, SUBMISSION và RUBRIC. M�
 | 0 — Khảo sát | T0 / điều phối | Đọc yêu cầu, kiểm tra môi trường, tạo bảng này | Hoàn thành |
 | 1 — Final project | T1 / agent production | Config, auth, Redis, rate limit, cost guard, health/ready, JSON log, shutdown trong Part 6; kiểm tra khả dụng | Xong `ca2547f`; kiểm tra Linux PASS `c4da508` |
 | 1 — Đóng gói | T2 / agent packaging | Multi-stage Dockerfile, Compose Redis, dockerignore, Railway/Render config | Xong `018add7`, runtime `ed7c3fc` |
-| 2 — Kiến thức và bằng chứng | T3 / điều phối | MISSION_ANSWERS Part 1–5, AI log, kết quả chạy thực tế; phần chưa chạy đánh dấu rõ | Tài liệu `0c7a5d6`, HTTP Part1/4 `2132484`; image/scaling `d551852`; Compose Part2 đang chạy |
+| 2 — Kiến thức và bằng chứng | T3 / điều phối | MISSION_ANSWERS Part 1–5, AI log, kết quả chạy thực tế; phần chưa chạy đánh dấu rõ | Local xong: HTTP `2132484`, image/scaling `d551852`, Compose đầy đủ `e41b976`; cloud Part3 còn chờ |
 | 3 — Benchmark | T4 / agent benchmark | Baseline eval v1/v2 trước sửa; histogram, sửa KB, fixed eval 23/23, CI gate; JSON thực | Xong `e14db2e`, `013d0e5`; fixed 23/23, CI chưa chạy remote |
 | 3 — Load test | T5 / agent benchmark | 4 concurrency và 3 slow rate; 300 requests/lần; báo cáo khớp JSON | Xong `ee50ae6`, `cb5aa26`; c50/c100 vi phạm SLO |
 | 4 — Kiểm tra đầy đủ | T6 / điều phối + production | Checker đầy đủ PASS 12/12 trên Linux + Docker; image size, Part 2/5 runtime | Xong Part6 `c4da508` PASS12/12,43/43; image/scaling `d551852` |
 | 5 — Cloud | T7 / điều phối | Deploy Part 6 + Redis, public URL, 4 HTTP checks, 3 ảnh và DEPLOYMENT.md | Chờ người dùng: xác nhận chưa có tài khoản/phiên đăng nhập |
-| 6 — Observability | T8 / benchmark + điều phối | Locust scale 1/3 CSV, Grafana, trace chậm/lỗi + log, ≥2 alert firing cùng ảnh | Đang tải image stack |
+| 6 — Observability | T8 / benchmark + điều phối | Locust scale 1/3 CSV, Grafana, trace chậm/lỗi + log, ≥2 alert firing cùng ảnh | Promtool PASS; Grafana/PromQL/Jaeger API có dữ liệu thật; đang chạy Locust/chaos; ảnh bỏ qua theo người dùng |
 | 7 — Đóng gói bài | T9 / điều phối | Soát rubric, secret, đủ file/ảnh, cập nhật bảng và commit kết quả | Chờ các bước trên |
 
 ## Quy trình commit
