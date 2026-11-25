@@ -127,6 +127,15 @@ Chạy `.venv-benchmark/Scripts/python.exe scripts/verify_examples.py` trên Win
 
 ## AI log (chi tiết)
 
+| Yêu cầu giao AI | Kết quả nhận được | Kiểm tra do AI thực thi |
+|---|---|---|
+| Hoàn thiện các TODO Part 6 theo hợp đồng K5 | Config env, auth, Redis atomic rate limit, cost guard, health/readiness, JSON log | `ca2547f`; checker Linux nguyên bản PASS12/12 ở `c4da508` |
+| Đóng gói Docker và chuẩn bị cloud config | Multi-stage non-root, Compose Redis, Railway/Render | `018add7`, build/runtime `ed7c3fc`; chưa deploy cloud |
+| Trả lời Part 1–5 bằng code và bằng chứng thật | Mission answers, HTTP401/200/429, image size, Redis history qua3instance | `2132484`, `d551852`, `e41b976`; học viên chưa tự xác nhận |
+| Đo chất lượng/hiệu năng và sửa retrieval thiếu tài liệu | Baseline, histogram, KB JWT/HPA, fixed23/23, CI, load CSV/JSON | Các JSON/CSV đi kèm BENCHMARK_REPORT; không sửa golden dataset |
+
+AI đã tự phát hiện và sửa `PYTHONUSERBASE` cho các Dockerfile ví dụ dùng non-root; đã chạy lại image/stack thực. Rà soát cuối không phát hiện lỗi chặn theo rubric; checker/dataset không đổi, không track `.env` thật. Người dùng chưa đăng nhập cloud và đã chọn bỏ qua ảnh, nên không ghi hai phần đó là hoàn thành.
+
 - Yêu cầu: đọc hướng dẫn, chia giai đoạn, giao task cho agent, commit ngay sau mỗi task hoàn thành.
 - AI hỗ trợ: điều phối lập kế hoạch và soạn tài liệu; agent production viết Part 6; agent packaging viết Docker/deploy config; agent benchmark thực thi load/eval, sửa KB và CI.
 - Kiểm tra của AI: các lệnh và bằng chứng ghi trong báo cáo/commit; những phần bị môi trường chặn được đánh dấu chưa kiểm chứng.
