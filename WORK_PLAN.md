@@ -12,8 +12,8 @@ Theo README (điều chỉnh K5), RULES, CHECKPOINTS, SUBMISSION và RUBRIC. M�
 | 3 — Load test | T5 / agent benchmark | 4 concurrency và 3 slow rate; 300 requests/lần; báo cáo khớp JSON | Xong `ee50ae6`, `cb5aa26`; c50/c100 vi phạm SLO |
 | 4 — Kiểm tra đầy đủ | T6 / điều phối + production | Checker đầy đủ PASS 12/12 trên Linux + Docker; image size, Part 2/5 runtime | Xong Part6 `c4da508` PASS12/12,43/43; image/scaling `d551852` |
 | 5 — Cloud | T7 / điều phối | Deploy Part 6 + Redis, public URL, 4 HTTP checks, 3 ảnh và DEPLOYMENT.md | Chờ người dùng: xác nhận chưa có tài khoản/phiên đăng nhập |
-| 6 — Observability | T8 / benchmark + điều phối | Locust scale 1/3 CSV, Grafana, trace chậm/lỗi + log, ≥2 alert firing cùng ảnh | Promtool PASS; Grafana/PromQL/Jaeger API có dữ liệu thật; đang chạy Locust/chaos; ảnh bỏ qua theo người dùng |
-| 7 — Đóng gói bài | T9 / điều phối | Soát rubric, secret, đủ file/ảnh, cập nhật bảng và commit kết quả | Chờ các bước trên |
+| 6 — Observability | T8 / benchmark + điều phối | Locust scale 1/3 CSV, Grafana, trace chậm/lỗi + log, ≥2 alert firing cùng ảnh | API/log và CSV xong `606c40f`; scale `d3ee988`/`61ca7f4`; error-only `ac6bc62`; ảnh bỏ qua theo người dùng |
+| 7 — Đóng gói bài | T9 / điều phối | Soát rubric, secret, đủ file/ảnh, cập nhật bảng và commit kết quả | Kiểm kê local xong; bài nộp còn thiếu cloud/ảnh và xác nhận tên/public repo |
 
 ## Quy trình commit
 
@@ -36,3 +36,20 @@ Người dùng chọn bỏ qua ảnh sau khi automatic approval review chặn ch
 ## Điều kiện kết thúc
 
 Bài chỉ hoàn thành toàn bộ khi có PASS 12/12 bản đầy đủ, URL cloud qua 4 kiểm tra CP6, đủ JSON/CSV/7 ảnh theo SUBMISSION và báo cáo khớp bằng chứng. Hoàn thành code không đồng nghĩa hoàn thành bài nộp.
+
+## Kết quả bàn giao local
+
+- Part 6: `reports/production_linux.txt` có PASS12/12,43/43; checker và golden dataset giữ nguyên so với commit gốc.
+- Part 1/4: HTTP thật xác nhận query200/JSON422, thiếu auth401, 10 request200 rồi429; không lưu token.
+- Part 2/5: image production giảm85.62%; full agent/Redis/Qdrant/Nginx200; ba instance giữ đủ10 message cùng session.
+- CP7: đủ10 JSON benchmark/eval; fixed23/23, không regression; c50/c100 vi phạm SLO được ghi đúng.
+- CP8: scale1/3 CSV, Grafana/PromQL API, trace chậm/lỗi khớp log, promtoolSUCCESS. Hai alert mới cùngfiring; error83.2s, latency143.7s; cost alert có sẵn không tính là hiệu quả fault mới.
+- Rà soát: JSON parse thành công, CSV tổng hợp khớp báo cáo; `git diff --check` sạch; không có `.env` thật trong tracked files/lịch sử commit.
+- AI log nằm trong MISSION_ANSWERS; học viên chưa tự xác nhận đọc hiểu hoặc chạy lại.
+
+## Phần người dùng cần hoàn tất trước khi nộp
+
+1. Có tài khoản/phiên Railway hoặc Render, deploy Part6+Redis và điền URL thật; chạy bốn HTTP checks CP6.
+2. Bổ sung7 ảnh theo SUBMISSION nếu muốn đáp ứng đủ rubric; hiện không có ảnh theo lựa chọn bỏ qua của người dùng.
+3. Xác nhận lớpL3A/L3B, tên repo đúng mẫu và repoPublic. Không tự suy đoán hoặc đổi cấu hình repo từ xa.
+4. Tự đọc/giải thích code, kiểm tra lại số liệu và bổ sung phần tự kiểm tra trong AI log, rồi nộp link repo trênLMS.
