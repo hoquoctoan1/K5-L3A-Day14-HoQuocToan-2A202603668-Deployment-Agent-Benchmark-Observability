@@ -134,7 +134,7 @@ Chạy `.venv-benchmark/Scripts/python.exe scripts/verify_examples.py` trên Win
 | Trả lời Part 1–5 bằng code và bằng chứng thật | Mission answers, HTTP401/200/429, image size, Redis history qua3instance | `2132484`, `d551852`, `e41b976`; học viên chưa tự xác nhận |
 | Đo chất lượng/hiệu năng và sửa retrieval thiếu tài liệu | Baseline, histogram, KB JWT/HPA, fixed23/23, CI, load CSV/JSON | Các JSON/CSV đi kèm BENCHMARK_REPORT; không sửa golden dataset |
 
-AI đã tự phát hiện và sửa `PYTHONUSERBASE` cho các Dockerfile ví dụ dùng non-root; đã chạy lại image/stack thực. Rà soát cuối không phát hiện lỗi chặn theo rubric; checker/dataset không đổi, không track `.env` thật. Người dùng chưa đăng nhập cloud và đã chọn bỏ qua ảnh, nên không ghi hai phần đó là hoàn thành.
+AI đã tự phát hiện và sửa `PYTHONUSERBASE` cho các Dockerfile ví dụ dùng non-root; đã chạy lại image/stack thực. Rà soát cuối không phát hiện lỗi chặn theo rubric; checker/dataset không đổi, không track `.env` thật. Người dùng chưa đăng nhập cloud nên phần deploy và 3 ảnh deploy chưa hoàn thành. 4 ảnh Part 7 (Grafana, 2 trace Jaeger, Prometheus alerts) do Claude Code chụp bằng Chrome headless từ stack chạy thật trên máy học viên, trong một lần chạy bổ sung có chaos riêng (`reports/chaos_screenshot_alerts.json`).
 
 - Yêu cầu: đọc hướng dẫn, chia giai đoạn, giao task cho agent, commit ngay sau mỗi task hoàn thành.
 - AI hỗ trợ: điều phối lập kế hoạch và soạn tài liệu; agent production viết Part 6; agent packaging viết Docker/deploy config; agent benchmark thực thi load/eval, sửa KB và CI.

@@ -12,7 +12,7 @@ Theo README (điều chỉnh K5), RULES, CHECKPOINTS, SUBMISSION và RUBRIC. M�
 | 3 — Load test | T5 / agent benchmark | 4 concurrency và 3 slow rate; 300 requests/lần; báo cáo khớp JSON | Xong `ee50ae6`, `cb5aa26`; c50/c100 vi phạm SLO |
 | 4 — Kiểm tra đầy đủ | T6 / điều phối + production | Checker đầy đủ PASS 12/12 trên Linux + Docker; image size, Part 2/5 runtime | Xong Part6 `c4da508` PASS12/12,43/43; image/scaling `d551852` |
 | 5 — Cloud | T7 / điều phối | Deploy Part 6 + Redis, public URL, 4 HTTP checks, 3 ảnh và DEPLOYMENT.md | Chờ người dùng: xác nhận chưa có tài khoản/phiên đăng nhập |
-| 6 — Observability | T8 / benchmark + điều phối | Locust scale 1/3 CSV, Grafana, trace chậm/lỗi + log, ≥2 alert firing cùng ảnh | API/log và CSV xong `606c40f`; scale `d3ee988`/`61ca7f4`; error-only `ac6bc62`; ảnh bỏ qua theo người dùng |
+| 6 — Observability | T8 / benchmark + điều phối | Locust scale 1/3 CSV, Grafana, trace chậm/lỗi + log, ≥2 alert firing cùng ảnh | API/log và CSV xong `606c40f`; scale `d3ee988`/`61ca7f4`; error-only `ac6bc62`; 4 ảnh Part 7 đã chụp (Chrome headless) |
 | 7 — Đóng gói bài | T9 / điều phối | Soát rubric, secret, đủ file/ảnh, cập nhật bảng và commit kết quả | Kiểm kê local xong; bài nộp còn thiếu cloud/ảnh và xác nhận tên/public repo |
 
 ## Quy trình commit
@@ -62,4 +62,4 @@ Người dùng đã yêu cầu tiếp tục tất cả giai đoạn, bao gồm �
 - Repo hiện tại trả HTTP200 khi truy cập không đăng nhập, xác nhận public. Chưa đổi tên repo từ xa.
 - Blueprint Render đã chuẩn bị web+Redis cùng region, explicit free plans, Redis chặn truy cập public; kiểm tra YAML local đạt, chưa gọi Render để tạo dịch vụ.
 - Đã đề nghị kết nối GitHub/Render và người dùng tự đăng nhập/chấp nhận điều khoản. Chưa xác nhận kết nối thành công.
-- Stack observability đã mở lại, tạo tải và thu bằng chứng riêng ở `reports/screenshot_run/`, không ghi đè số đo ban đầu. Đang chờ cửa sổ Edge riêng để chụp UI, vì browser access host chưa hoạt động.
+- Stack observability đã mở lại, tạo tải và thu bằng chứng riêng ở `reports/screenshot_run/`, không ghi đè số đo ban đầu. Đã chụp 4 ảnh Part 7 bằng Chrome headless (không cần điều khiển cửa sổ người dùng); chaos bổ sung cho ảnh alert: error 94.7 s, latency 149.9 s. Còn thiếu 3 ảnh deploy, phụ thuộc deploy Render.

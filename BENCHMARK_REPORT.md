@@ -70,14 +70,25 @@ Metric thêm: histogram `agent_question_length_chars` với bucket 20/50/100/200
 
 ## 4. Observability stack (production)
 
-Đã chạy stack thực với Prometheus 3.16.0, Grafana 13.2.4, Jaeger 2.23.0, Locust 2.47.0, Nginx 1.28. Dữ liệu API/log nằm trong `reports/observability_scale1_evidence.json`, `observability_scale3_evidence.json` và hai file `jaeger_*_trace.json`. Tiện ích thu trace dùng API `/api/v3` theo [tài liệu Jaeger](https://www.jaegertracing.io/docs/2.23/architecture/apis/), đã kiểm chứng trên service chạy thật. **Người dùng yêu cầu bỏ screenshot**; bằng chứng API/log không thay thế yêu cầu ảnh trong rubric, nên phần ảnh còn thiếu.
+Đã chạy stack thực với Prometheus 3.16.0, Grafana 13.2.4, Jaeger 2.23.0, Locust 2.47.0, Nginx 1.28. Dữ liệu API/log nằm trong `reports/observability_scale1_evidence.json`, `observability_scale3_evidence.json` và hai file `jaeger_*_trace.json`. Tiện ích thu trace dùng API `/api/v3` theo [tài liệu Jaeger](https://www.jaegertracing.io/docs/2.23/architecture/apis/), đã kiểm chứng trên service chạy thật.
 
-### 4.1 Screenshot cần bổ sung
+### 4.1 Screenshot
 
-- [ ] Grafana có tải và Golden Signals.
-- [ ] Jaeger trace chậm và span chậm nhất.
-- [ ] Jaeger trace lỗi có exception.
-- [ ] Prometheus Alerts thấy ít nhất **2 alert cùng firing** theo CHECKPOINTS/RUBRIC.
+Ảnh chụp từ một lần chạy bổ sung (stack khởi động lại, 3 agent), bằng chứng riêng ở `reports/screenshot_run/` và `reports/chaos_screenshot_alerts.json`; không ghi đè số đo ban đầu. Chụp bằng Chrome headless trên chính máy chạy stack, ngày 2026-11-25 (GMT+7).
+
+- [x] [Grafana](screenshots/grafana-dashboard.png) có tải: chụp lúc 15:55 khi chaos đang chạy, 3 instance up, traffic 57.5 req/s, error rate 20.36%, p95 1.91 s; biểu đồ thấy rõ giai đoạn baseline (~20 req/s) và lúc bơm lỗi.
+- [x] [Jaeger trace chậm](screenshots/jaeger-slow-trace.png) `a92f6b9bd87601a2aba5714649c4dfb2`: tổng **1788.9 ms**; span chậm nhất `chat mock-llm-small` **1671.0 ms** (93.4%), `agent.retrieve_context` chỉ 21.3 ms.
+- [x] [Jaeger trace lỗi](screenshots/jaeger-error-trace.png) `3f980a8eb73f61ae72f9e3b413d510ed`: HTTP 503, 121.7 ms; span `chat mock-llm-small` status ERROR `LLMError: Upstream LLM error: 503 Service Unavailable (mock)`.
+- [x] [Prometheus Alerts](screenshots/prometheus-alert-firing.png): **3 alert cùng firing** — `AgentHighErrorRate`, `AgentHighLatencyP95`, `LLMCostBurnRateHigh`.
+
+Log JSON khớp `trace_id` của hai trace trong ảnh (nguồn `reports/screenshot_run/observability_evidence.json`):
+
+```json
+{"ts": "2026-11-25T08:39:17.811688+00:00", "level": "INFO", "service": "observable-agent", "instance": "05673875d6a9", "event": "llm_call", "trace_id": "a92f6b9bd87601a2aba5714649c4dfb2", "span_id": "7d448db43ed58779", "request_id": "c2d29337806d", "model": "mock-llm-small", "agent_version": "v2", "input_tokens": 73, "output_tokens": 35, "cost_usd": 3.2e-05, "llm_ms": 1670.5}
+{"ts": "2026-11-25T08:39:30.124062+00:00", "level": "INFO", "service": "observable-agent", "instance": "05673875d6a9", "event": "llm_error", "trace_id": "3f980a8eb73f61ae72f9e3b413d510ed", "span_id": "faa28223222db1b5", "request_id": "68fd02b4c994", "error": "Upstream LLM error: 503 Service Unavailable (mock)"}
+```
+
+Lần chaos dùng cho ảnh alert (`python run_chaos.py --phase combined --prefix chaos_screenshot`, error 0.2, slow 0.3, 100 users, 4 phút, bắt đầu 08:53:02 UTC): trước khi bơm lỗi chỉ `LLMCostBurnRateHigh` đang firing (không tính là kết quả fault mới). `AgentHighErrorRate` firing sau **94.7 s**, `AgentHighLatencyP95` sau **149.9 s** — cùng thứ tự và gần với thí nghiệm B ban đầu (83.2 s / 143.7 s); chênh lệch nằm trong độ phân giải poll 5 s cộng thời gian recreate container.
 
 ### 4.2 Thí nghiệm phá hệ thống đã chạy
 
@@ -92,7 +103,7 @@ Thí nghiệm B dùng cùng tải trong 4 phút, thêm độ chậm vào cấu h
 
 Đổi v1 có thể giảm chất lượng mà latency/error/cost vẫn khỏe. Cần eval trên golden dataset trong CI, canary/shadow evaluation và lấy mẫu câu trả lời thực tế để phát hiện regression ngữ nghĩa. Hạ tầng khỏe không đảm bảo câu trả lời đúng.
 
-Từ PromQL lúc tải 3 instance (`observability_scale3_evidence.json`): p95 = 1.19647 s, average = 0.34752 s. Khoảng cách cho thấy đuôi request chậm; histogram Prometheus nội suy bucket nên p95 không cần bằng percentile Locust trên toàn bộ lần chạy. RPS mỗi instance là 19.9455, 16.6728 và 16.6035; cả ba đều nhận tải, chưa hoàn toàn đều ở thời điểm lấy mẫu (instance đầu có lịch sử chạy lâu hơn). Input = 4094.1494 token/s, output = 2137.9999 token/s; retrieval thêm context khiến input nhiều hơn. Gọi public `/metrics` thực trả **404**; Prometheus scrape nội bộ để tránh lộ thông tin vận hành. Grafana API trả database `ok` và dashboard UID `day14-agent-overview` có tồn tại; chưa quan sát UI theo yêu cầu bỏ ảnh.
+Từ PromQL lúc tải 3 instance (`observability_scale3_evidence.json`): p95 = 1.19647 s, average = 0.34752 s. Khoảng cách cho thấy đuôi request chậm; histogram Prometheus nội suy bucket nên p95 không cần bằng percentile Locust trên toàn bộ lần chạy. RPS mỗi instance là 19.9455, 16.6728 và 16.6035; cả ba đều nhận tải, chưa hoàn toàn đều ở thời điểm lấy mẫu (instance đầu có lịch sử chạy lâu hơn). Input = 4094.1494 token/s, output = 2137.9999 token/s; retrieval thêm context khiến input nhiều hơn. Gọi public `/metrics` thực trả **404**; Prometheus scrape nội bộ để tránh lộ thông tin vận hành. Grafana API trả database `ok` và dashboard UID `day14-agent-overview` có tồn tại; UI xem ở `screenshots/grafana-dashboard.png`.
 
 ### 4.3 Phân tích trace và log tương ứng
 
@@ -130,4 +141,4 @@ Riêng `/ask`: 1 instance RPS 38.2346, p50 500 ms, p95 3500 ms, p99 5900 ms, 45/
 2. Retrieval tăng tokens nhưng cải thiện cost/câu đúng; quality gate kiểm tra cả accuracy lẫn regression.
 3. Concurrency cao có thể làm latency tăng nhanh khi throughput chững lại; cần profiling và so sánh scale bằng cùng workload.
 
-Nếu triển khai thật, bổ sung saturation/queue depth, lỗi Redis, budget burn rate và đánh giá chất lượng có lấy mẫu. CP7 và phần đo API/log, traces, alert, scaling CP8 đã có dữ liệu thực; ảnh được bỏ theo yêu cầu người dùng, cloud chưa triển khai. Đã commit dữ liệu trước khi dọn stack bằng `docker compose -p k5-day14-observability down -v` và dừng hai server benchmark v1/v2; không tác động container ngoài bài lab.
+Nếu triển khai thật, bổ sung saturation/queue depth, lỗi Redis, budget burn rate và đánh giá chất lượng có lấy mẫu. CP7 và phần đo API/log, traces, alert, scaling CP8 đã có dữ liệu thực và 4 ảnh Part 7 trong `screenshots/`; cloud chưa triển khai. Đã commit dữ liệu trước khi dọn stack bằng `docker compose -p k5-day14-observability down -v` và dừng hai server benchmark v1/v2; không tác động container ngoài bài lab.
