@@ -86,8 +86,6 @@ Chưa chạy Exercise 5.4–5.5 (3 instance, `test_stateless.py`) vì thiếu Do
 
 Đang chờ agent hoàn thành và kiểm tra tích hợp. Chưa tuyên bố PASS 12/12. Output thật sẽ lưu trong `reports/`.
 
-## AI log
-
 ## Bằng chứng chạy ví dụ
 
 Chạy `.venv-benchmark/Scripts/python.exe scripts/verify_examples.py` trên Windows. Part 1: query POST trả 200 và có answer; JSON-only trả 422. Part 4: 401/200/429 đúng như trên. Script khởi động server riêng, gửi HTTP thật, tắt server sau kiểm tra; không chứng minh graceful SIGTERM Linux. Đặt PYTHONIOENCODING=utf-8 vì ví dụ develop in tiếng Việt ra stdout.
