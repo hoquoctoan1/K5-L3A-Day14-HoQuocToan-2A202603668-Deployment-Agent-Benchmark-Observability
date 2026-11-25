@@ -84,7 +84,27 @@ Chưa chạy Exercise 5.4–5.5 (3 instance, `test_stateless.py`) vì thiếu Do
 
 ## Part 6 — Kết quả checker
 
-Đang chờ agent hoàn thành và kiểm tra tích hợp. Chưa tuyên bố PASS 12/12. Output thật sẽ lưu trong `reports/`.
+Checker nguyên bản chạy đầy đủ trong Python 3.11 Linux container, Redis thật, Docker daemon thật: **PASS 12/12, 43/43 checks passed**. Bằng chứng: `reports/production_linux.txt`. Chạy lại trên Windows bằng `tools/production-check/run.ps1` (Docker Desktop Linux đang bật, truyền đường dẫn docker nếu chưa có PATH).
+
+```text
+📋 Checklist Deliverable
+✅ Dockerfile (multi-stage, < 500 MB)
+✅ docker-compose.yml (agent + redis)
+✅ .dockerignore
+✅ Health check endpoint (GET /health)
+✅ Readiness endpoint (GET /ready)
+✅ API Key authentication
+✅ Rate limiting
+✅ Cost guard
+✅ Config từ environment variables
+✅ Structured logging
+✅ Graceful shutdown
+✅ Public URL ready (Railway / Render config)
+Result: 12/12 tiêu chí đạt · 43/43 checks passed
+🎉 PASS 12/12 — PRODUCTION READY! Deploy nào!
+```
+
+Mục Public URL ready trong checker xác minh cấu hình deploy; **chưa có URL public thực tế**. Kiểm tra image độc lập: 286286447 byte, user UID 10001, health 200/readiness 503 khi Redis không sẵn sàng, stop exit 0; xem `reports/packaging_runtime.txt`. Hai file `production_static.txt`/`production_runtime.txt` là lần kiểm tra trung gian trước khi Docker/Redis sẵn sàng, không phải kết quả cuối.
 
 ## Bằng chứng chạy ví dụ
 

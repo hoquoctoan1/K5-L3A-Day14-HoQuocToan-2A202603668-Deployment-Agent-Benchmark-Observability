@@ -2,6 +2,8 @@
 
 Trạng thái: **chưa deploy**, chưa có URL public hoặc ảnh cloud. File này là hướng dẫn thực thi, không phải bằng chứng deploy thành công.
 
+Người dùng xác nhận chưa có tài khoản/phiên đăng nhập Railway hoặc Render. Kiểm tra local đầy đủ đã đạt PASS 12/12 (`reports/production_linux.txt`); kết quả này không thay thế bốn phép kiểm tra public URL.
+
 ## Phạm vi
 
 Deploy thư mục `06-lab-complete/` với Dockerfile của Part 6. Cần Redis trên cùng nền tảng; cấp `REDIS_URL` của Redis đó cho agent. Chọn Railway hoặc Render. Không cần triển khai cả hai để có phần so sánh cấu hình.
