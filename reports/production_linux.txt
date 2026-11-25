@@ -7,7 +7,7 @@
   ⏳ Kiểm tra readiness khi Redis mất kết nối...
   ⏳ Kiểm tra cost guard (budget ≈ 0)...
   ⏳ Kiểm tra graceful shutdown (SIGTERM)...
-  ⏳ Build Docker image prod-check:cf4eabba (Docker 29.9.3) — lần đầu có thể mất vài phút...
+  ⏳ Build Docker image prod-check:984b57f8 (Docker 29.9.3) — lần đầu có thể mất vài phút...
 
 ================================================================
   Production Readiness Check — Day 14 Lab
@@ -20,7 +20,7 @@
      ✅ Base image gọn (slim / alpine / distroless) — stage cuối dùng python:3.11-slim
      ✅ Chạy bằng user non-root
      ✅ Có HEALTHCHECK
-     ✅ Docker: build image thành công — 106s
+     ✅ Docker: build image thành công — 5s
      ✅ Docker: image < 500 MB — 273 MB
      ✅ Docker: container chạy được, GET /health → 200
 
@@ -71,7 +71,7 @@
 ✅ 11. Graceful shutdown
      ✅ Code xử lý SIGTERM / lifespan shutdown
      ✅ Khi chạy: SIGTERM lúc đang có request → request vẫn 200, process tự thoát — exit code 0
-     ✅ Docker: `docker stop` tắt êm (exit code 0, < 10s) — exit code 0, 2.3s
+     ✅ Docker: `docker stop` tắt êm (exit code 0, < 10s) — exit code 0, 0.9s
 
 ✅ 12. Public URL ready (Railway / Render config)
      ✅ Có railway.toml hoặc render.yaml (không chỉ toàn comment)
